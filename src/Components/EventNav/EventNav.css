@@ -1,0 +1,27 @@
+.event-nav{
+    width:800px;
+    height: 60px;
+    position: fixed;
+    top: 15%;
+    left: 22%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border: 1px solid red;
+}
+.event-nav-type{
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+@media (max-width:700px) {
+    .event-nav{
+        width: 360px;
+        left:26px;
+        top :100px;
+    }
+}

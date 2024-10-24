@@ -1,5 +1,5 @@
 import './EventTypes.css'
-
+//For home page
 const EventTypes = () => {
     return (
         <>

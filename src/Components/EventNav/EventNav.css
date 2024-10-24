@@ -3,19 +3,20 @@
     height: 60px;
     position: fixed;
     top: 15%;
-    left: 22%;
+    left: 24%;
     border-radius: 50px;
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    border: 1px solid red;
+
+    background-color: rgb(94, 9, 9);
 }
 .event-nav-type{
     width: 100px;
     height: 40px;
     border-radius: 50px;
-    border: 1px solid black;
     padding: 6px;
+    background-color: rgb(255, 255, 255);
 }
 
 @media (max-width:700px) {

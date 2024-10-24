@@ -4,26 +4,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ff000029;
+    background-color: #b8001f;
     width: 100%;
     position: fixed;
-    top: 0%;
-
-} 
+    top: 0;
+    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+    z-index: 1000; /* Keeps the navbar on top */
+}
+.navbar h1{
+    color: rgb(255, 255, 255);
+}
 
 .navbar-right{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.navbar button{
+.navbar button {
     padding: 4px;
     width: 80px;
     border: none;
     border-radius: 15px;
     background-color: #ff020278;
     color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add smooth transition */
 }
-.navbar button:hover{
+
+.navbar button:hover {
     transform: scale(1.05);
+    background-color: #ff0202; /* Change the hover color for a more interactive effect */
 }

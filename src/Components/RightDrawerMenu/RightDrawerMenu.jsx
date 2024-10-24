@@ -1,65 +1,93 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import React, { memo, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import './RightDrawerMenu.css'
+import './RightDrawerMenu.css';
 
-const RightDrawerMenu = () => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+const menuItems = [
+  { id: 'home', path: '/', label: 'Home' },
+  { id: 'register', path: '/register', label: 'Register' },
+  { id: 'events', path: '/events', label: 'Events' },
+  { id: 'merch', path: '/merch', label: 'Merch' },
+  { id: 'about', path: '/about', label: 'About' }
+];
 
-    // Toggle drawer open/close state
-    const toggleDrawer = (open) => () => {
-        setIsDrawerOpen(open);
-    };
+const RightDrawerMenu = memo(() => {
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
-    return (
-        <div>
-            {/* Hamburger Menu Icon */}
-            <IconButton edge="end" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-                <MenuIcon />
-            </IconButton>
+  // Memoize handlers to prevent unnecessary re-renders
+  const handleOpenDrawer = useCallback(() => {
+    setIsDrawerOpen(true);
+  }, []);
 
-            {/* Drawer component, anchored to the right */}
-            <Drawer
-                anchor="right"  // This positions the drawer on the right side
-                open={isDrawerOpen}
-                onClose={toggleDrawer(false)}
+  const handleCloseDrawer = useCallback(() => {
+    setIsDrawerOpen(false);
+  }, []);
 
-                PaperProps={{ className: 'customDrawer' }}
+  // Memoize drawer content to prevent unnecessary re-renders
+  const drawerContent = useMemo(() => (
+    <List component="nav">
+      {menuItems.map(({ id, path, label }) => (
+        <ListItem key={id} disablePadding>
+          {path ? (
+            <ListItemButton
+              component={Link}
+              to={path}
+              onClick={handleCloseDrawer}
+              className="drawer-link"
             >
-                {/* Content inside the drawer */}
-                <List>
+              <ListItemText primary={label} />
+            </ListItemButton>
+          ) : (
+            <ListItemButton onClick={handleCloseDrawer}>
+              <ListItemText primary={label} />
+            </ListItemButton>
+          )}
+        </ListItem>
+      ))}
+    </List>
+  ), [handleCloseDrawer]);
 
-                    <Link to='/'>
-                        <ListItem button>
-                            <ListItemText primary="Home" />
-                        </ListItem>
-                    </Link>
+  return (
+    <div>
+      <IconButton
+        edge="end"
+        color="inherit"
+        aria-label="menu"
+        onClick={handleOpenDrawer}
+      >
+        <MenuIcon />
+      </IconButton>
 
-                    <Link to='/register'>
-                        <ListItem button>
-                            <ListItemText primary="Register" />
-                        </ListItem>
-                    </Link>
+      <Drawer
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={handleCloseDrawer}
+        PaperProps={{
+          className: 'customDrawer',
+          elevation: 3,
+          sx: {
+            width: { xs: '250px', sm: '300px' },
+            '& .MuiListItemButton-root': {
+              py: 1.5,
+              '&:hover': {
+                backgroundColor: 'action.hover',
+              },
+            },
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+    </div>
+  );
+});
 
-                    <Link to='/events'>
-                        <ListItem button>
-                            <ListItemText primary="Events" />
-                        </ListItem>
-                    </Link>
-
-                    <ListItem button>
-                        <ListItemText primary="Merch" />
-                    </ListItem>
-
-                    <ListItem button>
-                        <ListItemText primary="About" />
-                    </ListItem>
-
-                </List>
-            </Drawer>
-        </div>
-    );
-};
+RightDrawerMenu.displayName = 'RightDrawerMenu';
 
 export default RightDrawerMenu;

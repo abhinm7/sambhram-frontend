@@ -1,0 +1,271 @@
+.checkout-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    /* margin: 0 0 0 0; */
+    /* border-radius: 10px; */
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .back{
+    position: relative;
+    margin: -10px 0 18px -5px;
+  }
+  .back button{
+    width: 70px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+  }
+  .back button img{
+    width: 18px;
+    float: left;
+  }
+  
+  .steps {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 40px 0;
+    padding: 0 20px;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gray;
+  }
+
+  .circle {
+    background-color: rgba(104, 104, 66, 0.274);
+    border-radius: 50%;
+    border: 2px solid red;
+    width: 25px;
+    height: 25px;
+    line-height: 40px;
+    font-weight: 400;
+    color: rgb(190, 147, 98);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .circle.active {
+    background-color: yellow;
+    color: red;
+  }
+  
+  .step-title {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .step-title.active{
+    color: red;
+  }
+  
+  .items-section {
+    margin-bottom: 20px;
+    /* border: 1px black solid; */
+    padding: 15px;
+    background-color: rgb(22, 22, 22);
+    border-radius: 10px;
+    box-shadow: 0 0 9px 2px rgb(37, 37, 37);
+  }
+  
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .items{
+    /* border: 1px rgb(255, 255, 255) solid; */
+    box-shadow: 0 0 5px rgb(48, 48, 48);
+    background: rgb(29, 29, 29);
+    border-radius: 5px;
+    width: 92%;
+    padding: 10px 7px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .items .name{
+    color: #fcedec;
+  }
+
+  .items .price{
+    color: rgb(255, 255, 129);
+  }
+  
+  .cancel button {
+    background: none;
+    position: relative;
+    top: 4px;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .addMore{
+    position: relative;
+    margin: 10px 0 20px 3px;
+    top: 6px;
+    font-size: 13px;
+    color: rgb(255, 85, 85);
+  }
+
+  .total {
+    position: relative;
+    top: 19px;
+    display: flex;
+    color: rgb(179, 179, 179);
+    flex-direction: column;
+    margin: 0 0 15px 5px;
+    line-height: 22px;
+  }
+  
+  .grand-total {
+    font-weight: bold;
+    color: #ff2010;
+  }
+
+  .price p{
+    float: right;
+  }
+
+  .merchent-section{
+    margin-top: 30px;
+  }
+
+  .merchent-bo{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  footer{
+    position: fixed;
+    display: flex;
+    background-color: black;
+    margin-left: -20px;
+    min-height: 65px;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 8px rgb(54, 54, 54);
+  }
+
+  .terms{
+    position: relative;
+    bottom: 0;
+    width: 200px;
+    margin: auto 10px;
+  }
+
+  .terms a{
+    /* font-weight: bold; */
+    color: rgb(250, 250, 45);
+  }
+
+  .continue-section{
+    position: fixed;
+    right: 10px;
+  }
+
+  .continue-button {
+    background-color: #ff1100;
+    margin: 10px 0;
+    color: white;
+    padding: 13px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .registration-form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .registration-form h2{
+    margin: 5px 0 20px 0;
+  }
+
+  .registration-form input{
+    padding: 14px 10px;
+    border-radius: 10px;
+    border: .1px yellow solid;
+    background: rgba(255, 255, 255, 0.048);
+    margin: 15px 12px;
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 0 5px white;
+  }
+
+  .registration-form p{
+    margin: 11px;
+    color: red;
+  }
+
+  .registration-form p img{
+    width: 20px;
+    float: left;
+  }
+
+  .otp-section h2{
+    margin: 5px 0;
+  }
+  
+  .otp-input {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 35px auto;
+  }
+  
+  .otp-input input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid yellow;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: 0 0 5px white;
+    color: white;
+  }
+
+  .otp-section p{
+    text-align: center;
+    margin: 25px;
+  }
+
+  .otp-section .p2{
+    margin: 1px auto;
+    color: rgb(253, 152, 152);
+  }
+  .p2 button{
+    background: transparent;
+    border: none;
+    color: yellow;
+    font-size: medium;
+    text-indent: 8px;
+    cursor: pointer;
+  }

@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar/Navbar.jsx'
 import Home from './Pages/Home/Home.jsx'
 import Registration from './Pages/Registration/Registration.jsx'
 import Event from './Pages/Events/Event.jsx'
+import CheckoutPage from './Pages/Checkout/Checkout.jsx'
 
 
 function App() {
@@ -12,16 +13,16 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <CheckoutPage />
+      {/* <Navbar />
       <div className="app">
-
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Registration />} />
           <Route path='/events' element={<Event />} />
         </Routes>
 
-      </div>
+      </div> */}
     </>
   )
 }

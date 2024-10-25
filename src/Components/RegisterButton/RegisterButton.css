@@ -1,0 +1,24 @@
+.register-button{
+    position: fixed;
+    place-self: center;
+    top: 85%;
+    width: 500px;padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    height: 60px;
+    background-color: rgb(185, 5, 5)
+    
+}
+.register-button p{
+    font-size: large;
+    color: aliceblue;
+}
+
+@media (max-width:700px){
+    .register-button{
+        top: 92%;
+        width: 360px;
+    }
+}

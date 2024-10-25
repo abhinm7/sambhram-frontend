@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.css'; 
 import Coupon from '../../Components/Coupons/Coupon'; 
 import Merchent from '../../Components/CheckoutMerchent/Merchent';
+import { StoreContext } from '../../Contexts/StoreContext';
 
 const CheckoutPage = () => {
+
   const [items, setItems] = useState([
     { id: 1, name: "Solo Dance", price: 200 },
     { id: 2, name: "Ludo King", price: 100 },
     { id: 3, name: "Robo Soccer", price: 400 },
   ]);
+  const {selectedEvent} = useContext(StoreContext);
+
+  
 
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [step, setStep] = useState(1);
@@ -38,6 +43,9 @@ const CheckoutPage = () => {
   const handleBack = () => {
     if (step > 1) {
       setStep(step - 1);
+    }
+    else {
+      navigate('/events');
     }
   };
 
@@ -93,6 +101,9 @@ const CheckoutPage = () => {
       {step === 1 && (
         <>
           <div className="items-section">
+            {/* {selectedEvent.map((item)=>{
+              item
+            })} */}
             {items.map((item) => (
               <div className="item-row" key={item.id}>
                 <div className="items">

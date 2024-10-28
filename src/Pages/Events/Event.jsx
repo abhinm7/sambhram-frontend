@@ -21,8 +21,8 @@ const Event = () => {
                 <div className="event-card-container">
                     <EventCard />
                     {isPopupVisible && <EventPopup />}
-                    {isRegisterButtonVisible && <RegisterButton />}
                 </div>
+                    {isRegisterButtonVisible && <RegisterButton />}
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import './Home.css';
 import Header from '../../Components/Header/Header';
 
@@ -10,7 +10,6 @@ const Home = () => {
     return (
         <div className="home">
             <Header/>
-            
                 <Spotlight/>
                 <EventTypes/>
                 <PopularEvents/>

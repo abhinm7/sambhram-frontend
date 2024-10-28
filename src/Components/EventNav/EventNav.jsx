@@ -5,8 +5,9 @@ import { StoreContext } from '../../Contexts/StoreContext';
 const EventNav = ()=>{
     const {setEventType} = useContext(StoreContext);
     return(
-       
+        
         <>
+        <div className="event-nav-container">
         <div className="event-nav">
             <div className="event-nav-type" onClick={()=>setEventType("Technical")}>
                 <p>Technical</p>
@@ -18,6 +19,8 @@ const EventNav = ()=>{
                 <p>Special</p>
             </div>
         </div>
+        </div>
+        
         </>
     )
 }

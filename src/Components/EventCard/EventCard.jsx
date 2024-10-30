@@ -1,10 +1,10 @@
 import './EventCard.css';
 import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../Contexts/StoreContext';
+
  
 const EventCard = () => {
-    const { eventType, setPopUpStatus, selectEvent, selectedEvent, eventDatas } = useContext(StoreContext);
-    
+    const { eventType, setPopUpStatus, selectEvent, selectedEvent, eventDatas} = useContext(StoreContext);
 
     return (
         <>
@@ -13,7 +13,6 @@ const EventCard = () => {
                 .map((event, index) => (
                     <div key={index} className="event-card">
                         <p>{event.name}</p>
-                        <p>shafaz </p>
                         <div className='card-buttons'>
                             <button onClick={() => setPopUpStatus(event)}>Info</button>
                             <button onClick={() => selectEvent(event._id)}>

@@ -3,6 +3,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import compression from 'vite-plugin-compression';
 import cssnano from 'cssnano'
+import {config} from 'dotenv'
+
+config();
+
 
 export default defineConfig({
   plugins: [
@@ -41,4 +45,8 @@ export default defineConfig({
       ],
     },
   },
+
+  define:{
+    'process.env':process.env
+  }
 });

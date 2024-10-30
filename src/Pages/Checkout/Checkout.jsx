@@ -1,18 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
-import Coupon from '../../Components/Coupons/Coupon';
-import Merchent from '../../Components/CheckoutMerchent/Merchent';
 import { StoreContext } from '../../Contexts/StoreContext';
+import SelectedItemSection from '../../RegisterComponents/SelectedItemSection/SelectedItemSection';
 
 const CheckoutPage = () => {
 
 
-  const { selectedEvent, setSelectedEvent, eventDatas, data, setData, setAmount, amount, sendDatatoBackend, payNow, selectEvent   } = useContext(StoreContext);
+  const { selectedEvent, setSelectedEvent, eventDatas, data, setData, setAmount, amount, sendDatatoBackend, payNow, step, setStep } = useContext(StoreContext);
 
   const items = eventDatas.filter(event => selectedEvent.includes(event._id));
   const [selectedCoupon, setSelectedCoupon] = useState(null);
-  const [step, setStep] = useState(1);
+
 
   const navigate = useNavigate();
 
@@ -29,8 +28,8 @@ const CheckoutPage = () => {
     setSelectedCoupon(coupon);
   };
 
-  if(selectedEvent.length==0){
-    
+  if (selectedEvent.length == 0) {
+    navigate('/events');
   }
 
 
@@ -44,11 +43,6 @@ const CheckoutPage = () => {
     setData(data => ({ ...data, [name]: value }))
   }
 
-  // const handleRemoveItem = (id) => {
-  //   const updatedItems = items.filter((item) => item._id !== id);
-  //   setItems(updatedItems);
-  // };
-
   const handleContinue = () => {
     if (step < 3) {
       setStep(step + 1);
@@ -57,7 +51,7 @@ const CheckoutPage = () => {
 
   const handleBack = () => {
     if (step > 1) {
-      setStep(step-1);
+      setStep(step - 1);
     }
     else {
       navigate('/events');
@@ -115,38 +109,9 @@ const CheckoutPage = () => {
           </div>
         </div>
 
-        {step === 1 && (
-          <>
-            <div className="items-section">
-              {/* {selectedEvent.map((item)=>{
-              item
-            })} */}
-              {items.map((item) => (
-                <div className="item-row" key={item._id}>
-                  <div className="items">
-                    <span className="name">{item.name}</span>
-                    <span className="price">₹ {item.price}</span>
-                  </div>
-                  <div className="cancel">
-                    <i className="fa-solid fa-xmark" onClick={() => selectEvent(item._id)} style={{ color: '#a30000' }}></i>
-                  </div>
-                </div>
-              ))}
-              <div className="addMore" onClick={handleAddMore}>
-                + Add more
-              </div>
-              
-              <div className="total">
-                <div className='price'>Total: <p>₹ {totalAmount}</p></div>
-                {selectedCoupon && <div className='price'>Coupon:  <p>-₹ {couponDiscount.toFixed(2)}</p></div>}
-                <div className="grand-total price">Grand Total: <p>₹ {grandTotal.toFixed(2)}</p></div>
-              </div>
-
-            </div>
-
-
-          </>
-        )}
+        {step === 1 &&
+          <SelectedItemSection items={items} />
+        }
 
 
 
@@ -205,10 +170,10 @@ const CheckoutPage = () => {
       </div>
       <div className="continue-panel">
         <div className="terms">
-        <i onClick={() => setSelectedEvent(() => [])} className="fa-solid fa-trash" style={{ color: "#520f0f" }}></i>
+          <i onClick={() => setSelectedEvent(() => [])} className="fa-solid fa-trash" style={{ color: "#520f0f" }}></i>
         </div>
-        
-          <button className="continue-button" onClick={payNow}>kulal button</button>
+
+        <button className="continue-button" onClick={payNow}>kulal button</button>
         <div className="continue-section">
           <button className="continue-button" onClick={handleContinue}>Continue ₹ {grandTotal.toFixed(2)}</button>
         </div>

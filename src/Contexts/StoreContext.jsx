@@ -81,19 +81,20 @@ export const ContextProvider = ({ children }) => {
                     const returnData = {
                         name: data.name,
                         usn: data.usn,
-                        phone: data.mobile,
+                        mobile: data.mobile,
                         college: data.college,
                         order_id: response.razorpay_order_id,
                         registrations: selectedEvent.map(id => ({ event_id: id })),
                         amount
                     }
-                    axios.post(`${url}/api/v1/auth/payment/register-participant`, returnData)
-                        .then((response) => {
-                            console.log("Registration successful:", response.data);
-                        })
-                        .catch((error) => {
-                            console.log("errors :",error)
-                        });
+
+                    // axios.post(`${url}/api/v1/auth/payment/register-participant`, returnData)
+                    //     .then((response) => {
+                    //         console.log("Registration successful:", response.data);
+                    //     })
+                    //     .catch((error) => {
+                    //         console.log("errors :",error)
+                    //     });
 
                 },
                 prefill: {

@@ -52,7 +52,7 @@
 }
 
 .discover-button:hover {
-    background-color: #010101;
+    background-color: #000000;
     color: white;
     border: 3px solid #db9132;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),

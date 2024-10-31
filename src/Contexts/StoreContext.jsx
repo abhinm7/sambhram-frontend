@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, } from 'react';
 import { eventsData } from '../sampleDB';
 import axios from 'axios';
 
-const url =  process.env.REACT_APP_URL;
+const url = process.env.REACT_APP_URL;
 export const StoreContext = createContext();
 export const ContextProvider = ({ children }) => {
     const [eventType, setEventType] = useState("Cultural");
@@ -12,7 +12,7 @@ export const ContextProvider = ({ children }) => {
         const allEvents = localStorage.getItem("eventDatas");
         return allEvents ? JSON.parse(allEvents) : [];
     });
-     
+
     const [amount, setAmount] = useState();
     const [data, setData] = useState({
         name: "",
@@ -38,9 +38,9 @@ export const ContextProvider = ({ children }) => {
         localStorage.setItem("selectedEvent", JSON.stringify(selectedEvent));
     }, [selectedEvent]);
 
-    useEffect(()=>{
-        localStorage.setItem("eventDatas",JSON.stringify(eventDatas));
-    },[eventDatas])
+    useEffect(() => {
+        localStorage.setItem("eventDatas", JSON.stringify(eventDatas));
+    }, [eventDatas])
 
     const sendDatatoBackend = async () => {
         const dataSet = {
@@ -76,29 +76,25 @@ export const ContextProvider = ({ children }) => {
                 description: "International Tech Fest",
                 image: "https://storage.googleapis.com/educrib/colleges/uploads/f7a1791dd41f3fa5e5e4f8a6faea2467ShreeDeviCollegeOfPhysiotherapy_Fd.jpg",
                 order_id: payLoad.orderId,
-                redirect: url+'/api/v1/auth/payment/verify',
+                redirect: url + '/api/v1/auth/payment/verify',
                 handler: function (response) {
-                    history.push({
-                        pathname:'/verify',
-                        state:{
-                            name:data.name,
-                            usn:data.usn,
-                            phone:data.mobile,
-                            college:data.college,
-                            registrations: selectedEvent.map(id => ({ event_id: id }))
-                        }
-                    })
                     const returnData = {
-                            name:data.name,
-                            usn:data.usn,
-                            phone:data.mobile,
-                            college:data.college,
-                            order_id:response.razorpay_order_id,
-                            registrations: selectedEvent.map(id => ({ event_id: id })),
-                            amount
-
+                        name: data.name,
+                        usn: data.usn,
+                        phone: data.mobile,
+                        college: data.college,
+                        order_id: response.razorpay_order_id,
+                        registrations: selectedEvent.map(id => ({ event_id: id })),
+                        amount
                     }
-                    axios.post(`${url}/api/v1/auth/payment/register-participant`,returnData)
+                    axios.post(`${url}/api/v1/auth/payment/register-participant`, returnData)
+                        .then((response) => {
+                            console.log("Registration successful:", response.data);
+                        })
+                        .catch((error) => {
+                            console.log("errors :",error)
+                        });
+
                 },
                 prefill: {
                     name: data.name,
@@ -121,16 +117,16 @@ export const ContextProvider = ({ children }) => {
             console.error("Error initiating payment", error);
         }
     };
-    
+
     useEffect(() => {
         console.log(url);
-        
+
         // Fetch data with axios and update state with the results
         axios.get(`${url}/api/v1/auth/events`)
             .then((response) => {
-                
+
                 setEventDatas(response.data);
-                console.log("Data successfully fetched from server ||","fetched quantity ::",eventDatas.length);
+                console.log("Data successfully fetched from server ||", "fetched quantity ::", eventDatas.length);
             })
             .catch((err) => {
                 console.log("Error in axios", err);
@@ -139,7 +135,7 @@ export const ContextProvider = ({ children }) => {
             });
     }, []);
 
- 
+
     const objects = {
         eventType,
         setEventType,

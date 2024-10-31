@@ -1,11 +1,88 @@
-.header{
+.header {
     width: 100%;
     height: 88vh;
     background-color: rgba(137, 144, 149, 0.45);
 }
 
-@media (max-width:700px){
-    .header{
+.invite-container {
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    padding-top: 20px;
+    background-color: #000;
+    color: white;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url('https://38.media.tumblr.com/44159f61c43912f04db1af0b033b7f59/tumblr_ntvjzrQJkM1qjhkb8o1_500.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    text-align: left;
+    padding: 20px;
+}
+
+.title {
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.date {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.discover-button {
+    background-color: transparent;
+    color: white;
+    padding: 15px 25px 15px;
+    font-size: 25px;
+    cursor: pointer;
+    border: 3px solid #e77f67;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.discover-button:hover {
+    background-color: #db9132;
+    color: white;
+    border: 3px solid #db9132;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.2)
+}
+
+@media (max-width: 700px) {
+    .invite-container {
+        height: 100vh;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .description {
+        font-size: 20px;
+        width: 77%;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+
+    .discover-button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    .header {
         height: 90vh;
     }
 }

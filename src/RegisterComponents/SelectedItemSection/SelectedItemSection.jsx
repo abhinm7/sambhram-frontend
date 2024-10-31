@@ -1,7 +1,7 @@
 import { StoreContext } from '../../Contexts/StoreContext';
 import React, { useContext } from 'react';
-import './SelectedItemSection.css'
-import { eventsData } from '../../sampleDB';
+// import './SelectedItemSection.css'
+// import { eventsData } from '../../sampleDB';
 
 const SelectedItemSection = ({items}) =>{
  

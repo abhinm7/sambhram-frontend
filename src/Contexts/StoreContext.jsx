@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, } from 'react';
-import { eventsData } from '../sampleDB';
+// import { eventsData } from '../sampleDB';
 import axios from 'axios';
 
 const url =  process.env.REACT_APP_URL;
@@ -133,9 +133,9 @@ export const ContextProvider = ({ children }) => {
                 console.log("Data successfully fetched from server ||","fetched quantity ::",eventDatas.length);
             })
             .catch((err) => {
-                console.log("Error in axios", err);
-                setEventDatas(eventsData);
-                console.log("Sample db fetched for production mode (", eventsData.length, "datas )");
+                console.log("Error in axios :: could not fetch data", err);
+                // setEventDatas(eventsData);
+                // console.log(" ");
             });
     }, []);
 
@@ -149,7 +149,7 @@ export const ContextProvider = ({ children }) => {
         setSelectedEvent,
         selectEvent,
         eventDatas,
-        eventsData,
+        // eventsData,
         setData,
         data,
         setAmount,

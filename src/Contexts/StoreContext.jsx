@@ -78,23 +78,9 @@ export const ContextProvider = ({ children }) => {
                 order_id: payLoad.orderId,
                 redirect: url + '/api/v1/auth/payment/verify',
                 handler: function (response) {
-                    const returnData = {
-                        name: data.name,
-                        usn: data.usn,
-                        mobile: data.mobile,
-                        college: data.college,
-                        order_id: response.razorpay_order_id,
-                        registrations: selectedEvent.map(id => ({ event_id: id })),
-                        amount
-                    }
-
-                    // axios.post(`${url}/api/v1/auth/payment/register-participant`, returnData)
-                    //     .then((response) => {
-                    //         console.log("Registration successful:", response.data);
-                    //     })
-                    //     .catch((error) => {
-                    //         console.log("errors :",error)
-                    //     });
+                  
+                 console.log("gateway success::",response);
+                 
 
                 },
                 prefill: {

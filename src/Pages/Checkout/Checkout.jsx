@@ -32,11 +32,6 @@ const CheckoutPage = () => {
     navigate('/events');
   }
 
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;

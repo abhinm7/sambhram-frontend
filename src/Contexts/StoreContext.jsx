@@ -47,7 +47,7 @@ export const ContextProvider = ({ children }) => {
             name: data.name,
             usn: data.usn,
             college: data.college,
-            mobile: data.mobile,
+            phone: data.mobile,
             amount: amount,
             registrations: selectedEvent.map(id => ({ event_id: id }))
         };

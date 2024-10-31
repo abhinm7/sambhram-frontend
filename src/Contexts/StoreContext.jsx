@@ -77,24 +77,29 @@ export const ContextProvider = ({ children }) => {
                 image: "https://storage.googleapis.com/educrib/colleges/uploads/f7a1791dd41f3fa5e5e4f8a6faea2467ShreeDeviCollegeOfPhysiotherapy_Fd.jpg",
                 order_id: payLoad.orderId,
                 redirect: url+'/api/v1/auth/payment/verify',
-                // handler: function (response) {
-                //     alert(`Payment ID: ${response.razorpay_payment_id}`);
-                //     alert(`Order ID: ${response.razorpay_order_id}`);
-                //     alert(`Razorpay Signature: ${response.razorpay_signature}`);
-                //     history.push({
-                //         pathname:'/verify',
-                //         state:{
-                //             razorpay_payment_id: response.razorpay_payment_id,
-                //             razorpay_order_id:response.razorpay_order_id,
-                //             razorpay_signature:response.razorpay_signature,
-                //             name:data.name,
-                //             usn:data.usn,
-                //             phone:data.mobile,
-                //             college:data.college,
-                //             registrations: selectedEvent.map(id => ({ event_id: id }))
-                //         }
-                //     })
-                // },
+                handler: function (response) {
+                    history.push({
+                        pathname:'/verify',
+                        state:{
+                            name:data.name,
+                            usn:data.usn,
+                            phone:data.mobile,
+                            college:data.college,
+                            registrations: selectedEvent.map(id => ({ event_id: id }))
+                        }
+                    })
+                    const returnData = {
+                            name:data.name,
+                            usn:data.usn,
+                            phone:data.mobile,
+                            college:data.college,
+                            order_id:response.razorpay_order_id,
+                            registrations: selectedEvent.map(id => ({ event_id: id })),
+                            amount
+
+                    }
+                    axios.post(`${url}/api/v1/auth/payment/register-participant`,returnData)
+                },
                 prefill: {
                     name: data.name,
                     contact: data.mobile
@@ -130,7 +135,7 @@ export const ContextProvider = ({ children }) => {
             .catch((err) => {
                 console.log("Error in axios", err);
                 setEventDatas(eventsData);
-                console.log("Sample db fetched for production mode", eventsData);
+                console.log("Sample db fetched for production mode (", eventsData.length, "datas )");
             });
     }, []);
 

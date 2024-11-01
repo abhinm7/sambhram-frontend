@@ -16,6 +16,11 @@ export default defineConfig({
       ext: '.br',
     }),
   ],
+  server: {
+    hmr: true, // Enable hot module replacement
+    middlewareMode: 'html',
+    historyApiFallback: true // Correct usage is actually via middleware, explained below
+  },
   build: {
     minify: 'terser',
     chunkSizeWarningLimit: 1500,

@@ -1,12 +1,10 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import compression from 'vite-plugin-compression';
-import cssnano from 'cssnano'
-import {config} from 'dotenv'
+import cssnano from 'cssnano';
+import { config } from 'dotenv';
 
 config();
-
 
 export default defineConfig({
   plugins: [
@@ -15,17 +13,23 @@ export default defineConfig({
       algorithm: 'brotliCompress', // Use Brotli compression
       ext: '.br',
     }),
+    {
+      name: 'single-page-app',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.method === 'GET' && !req.url.startsWith('/@') && !req.url.includes('.')) {
+            req.url = '/';
+          }
+          next();
+        });
+      },
+    },
   ],
   build: {
     minify: 'terser',
     chunkSizeWarningLimit: 1500,
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      }
-    }
+    terserOptions: {},
   },
-
   css: {
     postcss: {
       plugins: [
@@ -35,8 +39,7 @@ export default defineConfig({
       ],
     },
   },
-
-  define:{
-    'process.env':process.env
-  }
+  define: {
+    'process.env': process.env,
+  },
 });

@@ -118,7 +118,7 @@ export const ContextProvider = ({ children }) => {
             .catch((err) => {
                 console.log("Error in axios", err);
                 setEventDatas(eventsData);
-                console.log("Sample db fetched for production mode (", eventsData.length, "datas");
+                console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
             });
     }, []);
 

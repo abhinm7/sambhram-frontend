@@ -7,11 +7,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    z-index: 2;
+    background-image: url('flower.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    transition: transform 0.7s ease;
+}
+.event-card:hover{
+    transform: scale(1.1);
+}
+.event-card p{
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
 }
 .card-buttons{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
 }
 .card-buttons button{
     width: 80px;

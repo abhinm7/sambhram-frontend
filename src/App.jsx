@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home.jsx';
 import Registration from './Pages/Registration/Registration.jsx';
 import Event from './Pages/Events/Event.jsx';
 import CheckoutPage from './Pages/Checkout/Checkout.jsx';
+import Footer from './Components/Footer/Footer.jsx'
 
 import { ContextProvider } from './Contexts/StoreContext.jsx';
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/events" element={<Event />} />
             </Routes>
+          <Footer/>
           </div>
         </>
       )}

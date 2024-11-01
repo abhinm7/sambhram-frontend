@@ -11,9 +11,6 @@ const Home = () => {
         <div className="home">
             <Header/>
                 <Spotlight/>
-                <EventTypes/>
-                <PopularEvents/>
-            
         </div>
     );
 }

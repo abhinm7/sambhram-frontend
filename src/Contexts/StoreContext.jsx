@@ -66,11 +66,11 @@ export const ContextProvider = ({ children }) => {
         try {
             // Get order details from backend
             const payLoad = await sendDatatoBackend();
-
+             
             // Open Razorpay Checkout with dynamic order details
             const options = {
                 key: process.env.REACT_APP_RAZORPAY_ID, // Your Razorpay Key ID
-                amount: payLoad.amount, // Amount from backend response (should be in subunits, e.g., paise for INR)
+                 amount: payLoad.amount, // Amount from backend response (should be in subunits, e.g., paise for INR)
                 currency: payLoad.currency,
                 name: "SHREE DEVI SAMBHRAM",
                 description: "International Tech Fest",

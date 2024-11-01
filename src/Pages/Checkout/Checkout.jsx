@@ -13,7 +13,7 @@ const CheckoutPage = () => {
   const [selectedCoupon, setSelectedCoupon] = useState(null);
 
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const totalAmount = items.reduce((acc, item) => acc + item.price, 0);
   const couponDiscount = selectedCoupon ? (totalAmount * selectedCoupon.percent) / 100 : 0;

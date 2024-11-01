@@ -8,7 +8,9 @@
     flex-direction: column;
     justify-content: space-evenly;
     z-index: 2;
-    background-image: url('https://img.freepik.com/free-vector/hand-drawn-chinese-dragon-pattern-design_23-2150536678.jpg');
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7)), /* White gradient with 50% opacity */
+        url('https://img.freepik.com/free-vector/hand-drawn-chinese-dragon-pattern-design_23-2150536678.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
     border: none;

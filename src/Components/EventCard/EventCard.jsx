@@ -1,36 +1,32 @@
-import './EventCard.css'
-import { eventsData } from '../../sampleDB';
-import { useContext } from 'react';
+import './EventCard.css';
+import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../Contexts/StoreContext';
 
+
 const EventCard = () => {
-    const { eventType, setPopUpStatus, selectEvent, selectedEvent } = useContext(StoreContext);
-    let CurrentEvent;
-    if (eventType == "Technical") {
-        CurrentEvent = eventsData.filter(event => event.event_type == "Technical")
-    }
-    else if (eventType == "Cultural") {
-        CurrentEvent = eventsData.filter(event => event.event_type == "Cultural")
-    }
-    else {
-        CurrentEvent = eventsData.filter(event => event.event_type == "Special")
-    }
+    const { eventType, setPopUpStatus, selectEvent, selectedEvent, eventDatas } = useContext(StoreContext);
+
     return (
         <>
-            {CurrentEvent.map((event, index) => (
-                <div key={index} className="event-card">
-                    <p>{event.name}</p>
-                    <div className='card-buttons'>
-                        <button onClick={() => setPopUpStatus(event)}>Info</button>
+            {eventDatas
+                .filter(event => event.category === eventType)
+                .map((event, index) => (
+                    <div key={index} className="event-card">
+                        <p>{event.name}</p>  
+                        <div className='card-buttons'>
+                            <i onClick={() => setPopUpStatus(event)} className="fa-solid fa-circle-info" style={{ color: '#610000' }}></i>
+                            <i
+                                onClick={() => selectEvent(event._id)}
+                                className={!selectedEvent.includes(event._id) ? "fa-solid fa-plus" : "fa-solid fa-xmark"}
+                                style={{ color: '#610000' }}
+                            ></i>
 
-                        <button onClick={() => selectEvent(event._id)}>{selectedEvent.includes(event._id) ? "Remove" : "Add"}</button>
 
-
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
         </>
-    )
+    );
 }
 
 export default EventCard;

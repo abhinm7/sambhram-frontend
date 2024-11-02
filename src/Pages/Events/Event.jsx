@@ -9,23 +9,20 @@ import RegisterButton from '../../Components/RegisterButton/RegisterButton';
 const Event = () => {
     const { eventType, popUpStatus, selectedEvent } = useContext(StoreContext);
 
-    // const isPopupVisible = popUpStatus !== '';
+    // Directly evaluate conditions without memoization
+    const isPopupVisible = popUpStatus !== '';
     const isRegisterButtonVisible = selectedEvent.length > 0;
- 
+
     return (
         <div className='event'>
             <EventNav />
-                <div className="image-overlay">
-                    
-                </div>
             <div className='event-container'>
                 <h1 className='event-type-heading'>{eventType}</h1>
                 <div className="event-card-container">
                     <EventCard />
-                    {/* {isPopupVisible && <EventPopup />} */}
-                    <EventPopup/>
-                </div>
+                    {isPopupVisible && <EventPopup />}
                     {isRegisterButtonVisible && <RegisterButton />}
+                </div>
             </div>
         </div>
     );

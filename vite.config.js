@@ -15,7 +15,16 @@ export default defineConfig({
       ext: '.br',
     }),
   ],
+
   build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor code
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        }
+      }
+    },
     minify: 'terser',
     chunkSizeWarningLimit: 1500,
     terserOptions: {
@@ -39,3 +48,4 @@ export default defineConfig({
     'process.env': process.env,
   },
 });
+

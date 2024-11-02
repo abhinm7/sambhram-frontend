@@ -106,8 +106,20 @@ export const ContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        setEventDatas(eventsData);
-        console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
+        console.log(url ,":");
+
+        // Fetch data with axios and update state with the results
+        axios.get(`${url}/api/v1/auth/events`)
+            .then((response) => {
+
+                setEventDatas(response.data);
+                console.log("Data successfully fetched from server ||", "fetched quantity ::", eventDatas.length);
+            })
+            .catch((err) => {
+                console.log("Error in axios", err);
+                setEventDatas(eventsData);
+                console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
+            });
     }, []);
 
     

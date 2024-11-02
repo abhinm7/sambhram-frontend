@@ -1,90 +1,28 @@
-.event-nav-container{
-   height: 60px;
-   width: 100%;
-   position: fixed;
-   display: flex;
-   justify-content: center;
-   top: 100px;
-   z-index: 10;
-}
 .event-nav{
-    width:50%;
+    width:800px;
     height: 60px;
+    position: fixed;
+    top: 15%;
+    left: 24%;
     border-radius: 50px;
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
     padding: 10px;
-    background: linear-gradient(319deg, #000000, #540000, #630202);
-    background-size: 800% 800%;
-    -webkit-animation: AnimationName 5s ease infinite;
-    animation: AnimationName 5s ease infinite;
+
+    background-color: rgb(94, 9, 9);
 }
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-.event-nav-type {
-    width: 110px;
+.event-nav-type{
+    width: 100px;
     height: 40px;
     border-radius: 50px;
-    background-color: rgba(255, 255, 255, 0.605);
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    font-weight: bold;
-
-    transition: transform 0.2s; 
-}
-.event-nav .active{
-    border: 3px solid rgb(255, 0, 0);
-    background-color: white;
-
-    animation: shake 0.3s forwards;
+    padding: 6px;
+    background-color: rgb(255, 255, 255);
 }
 
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px); /* Move left */
-    }
-    50% {
-        transform: translateX(5px); /* Move right */
-    }
-    75% {
-        transform: translateX(-5px); /* Move left */
-    }
-    100% {
-        transform: translateX(0); /* Return to original position */
-    }
-}
-
-
-@media (max-width:1000px){ 
-    .event-nav-container{
-        top: 100px;
-    }
-    .event-nav{
-        width: 70%;
-
-    }
-}
 @media (max-width:700px) {
-    .event-nav-container{
-        top: 90px;
-    }
     .event-nav{
-        width: 80%;
-    }
-    .event-nav-type{
-        width: 30%;
-        font-size: 12px;
+        width: 360px;
+        left:26px;
+        top :100px;
     }
 }

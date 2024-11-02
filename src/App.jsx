@@ -41,6 +41,7 @@ function App() {
               <Route path="/register" element={<Registration />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/events" element={<Event />} />
+              <Route path="*" element={<h1>not found</h1>} />
             </Routes>
           <Footer/>
           </div>

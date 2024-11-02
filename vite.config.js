@@ -16,6 +16,11 @@ export default defineConfig({
   ],
   server: {
     historyApiFallback: true,
+    port: 3000,
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
   },
   build: {
     minify: 'terser',
@@ -24,7 +29,15 @@ export default defineConfig({
       compress: {
         drop_debugger: true
       }
-    }
+    },
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   css: {
     postcss: {

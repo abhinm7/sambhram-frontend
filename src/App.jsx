@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Preloader from './Components/Preloader/Preloader.jsx'
 
-
 import Home from './Pages/Home/Home.jsx';
 import Registration from './Pages/Registration/Registration.jsx';
 import Event from './Pages/Events/Event.jsx';
@@ -15,16 +14,27 @@ import { ContextProvider } from './Contexts/StoreContext.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate data fetching or setup process here
-    // For example, replace the timeout with actual data loading
-    window.addEventListener("load", () => setIsLoading(false));
+    // Modified loading logic
+    const handleLoad = () => setIsLoading(false);
+    
+    // Check if document is already loaded
+    if (document.readyState === 'complete') {
+      setIsLoading(false);
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
 
-    return () => window.removeEventListener("load", () => setIsLoading(false));
+    // Fallback timer in case load event doesn't fire
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -35,7 +45,7 @@ function App() {
         <>
           <Navbar />
           <div className="app">
-          <ToastContainer />
+            <ToastContainer />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<Registration />} />
@@ -43,7 +53,7 @@ function App() {
               <Route path="/events" element={<Event />} />
               <Route path="*" element={<h1>not found page</h1>} />
             </Routes>
-          <Footer/>
+            <Footer/>
           </div>
         </>
       )}

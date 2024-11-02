@@ -3,15 +3,57 @@ import { eventsData } from '../sampleDB';
 import axios from 'axios';
 
 const url = process.env.REACT_APP_URL;
+
 export const StoreContext = createContext();
 export const ContextProvider = ({ children }) => {
     const [eventType, setEventType] = useState("Cultural");
     const [popUpStatus, setPopUpStatus] = useState('');
 
-    const [eventDatas, setEventDatas] = useState(() => {
-        const allEvents = localStorage.getItem("eventDatas");
-        return allEvents ? JSON.parse(allEvents) : [];
-    });
+    const [eventDatas, setEventDatas] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            console.log(url, ":");
+            const response = await axios.get(`${url}/api/v1/auth/events`);
+            const newEventDatas = response.data;
+
+            // Save to localStorage
+            localStorage.setItem("eventDatas", JSON.stringify(newEventDatas));
+
+            // Update state
+            setEventDatas(newEventDatas);
+            console.log("Data successfully fetched from server ||", "fetched quantity ::", newEventDatas.length);
+        } catch (err) {
+            console.log("Error in axios", err);
+
+            // Try to load from localStorage first
+            const cachedData = localStorage.getItem("eventDatas");
+            if (cachedData) {
+                const parsedData = JSON.parse(cachedData);
+                setEventDatas(parsedData);
+                console.log("Data loaded from localStorage (", parsedData.length, "items)");
+            } else {
+                // Fallback to eventsData if nothing in localStorage
+                setEventDatas(eventsData);
+                console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
+            }
+        }
+    };
+
+    useEffect(() => {
+        const loadEvents = async () => {
+            // Try to load from localStorage first for immediate display
+            const cachedData = localStorage.getItem("eventDatas");
+            if (cachedData) {
+                setEventDatas(JSON.parse(cachedData));
+            }
+
+            // Then fetch fresh data from server
+            await fetchData();
+        };
+
+        loadEvents();
+    }, []);
 
     const [amount, setAmount] = useState();
     const [data, setData] = useState({
@@ -20,6 +62,7 @@ export const ContextProvider = ({ children }) => {
         college: "",
         mobile: "",
     });
+
     const [selectedEvent, setSelectedEvent] = useState(() => {
         const savedEvents = localStorage.getItem("selectedEvent");
         return savedEvents ? JSON.parse(savedEvents) : [];
@@ -66,11 +109,11 @@ export const ContextProvider = ({ children }) => {
         try {
             // Get order details from backend
             const payLoad = await sendDatatoBackend();
-             
+
             // Open Razorpay Checkout with dynamic order details
             const options = {
                 key: process.env.REACT_APP_RAZORPAY_ID, // Your Razorpay Key ID
-                 amount: payLoad.amount, // Amount from backend response (should be in subunits, e.g., paise for INR)
+                amount: payLoad.amount, // Amount from backend response (should be in subunits, e.g., paise for INR)
                 currency: payLoad.currency,
                 name: "SHREE DEVI SAMBHRAM",
                 description: "International Tech Fest",
@@ -78,9 +121,9 @@ export const ContextProvider = ({ children }) => {
                 order_id: payLoad.orderId,
                 redirect: url + '/api/v1/auth/payment/verify',
                 handler: function (response) {
-                  
-                 console.log("gateway success::",response);
-                 
+
+                    console.log("gateway success::", response);
+
 
                 },
                 prefill: {
@@ -105,24 +148,9 @@ export const ContextProvider = ({ children }) => {
         }
     };
 
-    useEffect(() => {
-        console.log(url ,":");
 
-        // Fetch data with axios and update state with the results
-        axios.get(`${url}/api/v1/auth/events`)
-            .then((response) => {
 
-                setEventDatas(response.data);
-                console.log("Data successfully fetched from server ||", "fetched quantity ::", eventDatas.length);
-            })
-            .catch((err) => {
-                console.log("Error in axios", err);
-                setEventDatas(eventsData);
-                console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
-            });
-    }, []);
 
-    
 
     const objects = {
         eventType,

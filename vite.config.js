@@ -3,11 +3,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import compression from 'vite-plugin-compression';
 import cssnano from 'cssnano'
-import {config} from 'dotenv'
-
-config();
-
-
 
 export default defineConfig({
   plugins: [
@@ -20,7 +15,6 @@ export default defineConfig({
   build: {
     minify: 'terser',
     chunkSizeWarningLimit: 1500,
-
     rollupOptions: {
       output: {
         manualChunks: {
@@ -33,7 +27,6 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true, // Remove console.logs in production
-
         drop_debugger: true
       }
     }
@@ -48,9 +41,4 @@ export default defineConfig({
       ],
     },
   },
-
-  define:{
-    'process.env':process.env
-  }
-
 });

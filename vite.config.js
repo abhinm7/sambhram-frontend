@@ -29,8 +29,7 @@ export default defineConfig({
     //   }
     // },
     terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.logs in production
+      compress: { // Remove console.logs in production
         drop_debugger: true
       }
     }

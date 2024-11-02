@@ -12,12 +12,12 @@ const EventCard = () => {
                 .filter(event => event.category === eventType)
                 .map((event, index) => (
                     <div key={index} className="event-card">
-                        <p>{event.name}</p>
+                        <p>{event.name}</p>  
                         <div className='card-buttons'>
                             <i onClick={() => setPopUpStatus(event)} className="fa-solid fa-circle-info" style={{ color: '#610000' }}></i>
                             <i
                                 onClick={() => selectEvent(event._id)}
-                                className={selectedEvent.includes(event._id) ? "fa-solid fa-plus" : "fa-solid fa-xmark"}
+                                className={!selectedEvent.includes(event._id) ? "fa-solid fa-plus" : "fa-solid fa-xmark"}
                                 style={{ color: '#610000' }}
                             ></i>
 

@@ -7,8 +7,11 @@ const EventPopup = () => {
     return (
         <>
             <div onClick={() => setPopUpStatus('')} className={`event-popup-container ${popUpStatus ? 'show' : ''}`} >
-                <div className="event-popup" onClick={(e) => e.stopPropagation()}>
 
+                <div className="event-popup" onClick={ (e) => e.stopPropagation()}>
+                    <div className="close-icon">
+                       <i onClick={() => setPopUpStatus('')} className="fa-solid fa-xmark" style={{ color: '#610000' }}></i>
+                    </div>
                     <div className="event-content">
 
 

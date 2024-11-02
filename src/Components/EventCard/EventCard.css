@@ -9,7 +9,7 @@
     justify-content: space-evenly;
     z-index: 2;
     background: 
-        linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7)), /* White gradient with 50% opacity */
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), /* White gradient with 50% opacity */
         url('https://img.freepik.com/free-vector/hand-drawn-chinese-dragon-pattern-design_23-2150536678.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
@@ -21,8 +21,8 @@
 }
 .event-card p{
     font-weight: bold;
-    font-size: 18px;
-    color: white;
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.505);
 }
 .card-buttons{
     display: flex;

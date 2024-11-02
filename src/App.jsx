@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Preloader from './Components/Preloader/Preloader.jsx'
 
+
 import Home from './Pages/Home/Home.jsx';
 import Registration from './Pages/Registration/Registration.jsx';
 import Event from './Pages/Events/Event.jsx';
@@ -10,6 +11,9 @@ import CheckoutPage from './Pages/Checkout/Checkout.jsx';
 import Footer from './Components/Footer/Footer.jsx'
 
 import { ContextProvider } from './Contexts/StoreContext.jsx';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +34,7 @@ function App() {
         <>
           <Navbar />
           <div className="app">
+          <ToastContainer />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<Registration />} />

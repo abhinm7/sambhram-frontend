@@ -9,7 +9,7 @@
 }
 
 body{
-  /* min-height: 100vh; */
+  min-height: 100vh;
   font-family: Outfit;
 }
 a{
@@ -18,7 +18,7 @@ a{
 }
 .app{
   margin: auto;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 @media (max-width:900px){

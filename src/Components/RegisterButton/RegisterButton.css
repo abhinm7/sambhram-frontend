@@ -1,48 +1,24 @@
-.register-button-container{
-    position: fixed;
-    top: 90%;
-    height: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 10;
-}
-
-
 .register-button{
-    width: 40%;
-    padding: 20px;
+    position: fixed;
+    place-self: center;
+    top: 85%;
+    width: 500px;padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
-    background-color: rgb(185, 5, 5)  
-}
-
-.register-button:hover{
-    background: linear-gradient(319deg, #000000, #540000, #630202);
-    background-size: 800% 800%;
-    -webkit-animation: AnimationName 5s ease infinite;
-    animation: AnimationName 5s ease infinite;
-}
-
-.register-button:hover p{
-    font-size: 20px;
-}
-
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    height: 60px;
+    background-color: rgb(185, 5, 5)
+    
 }
 .register-button p{
     font-size: large;
     color: aliceblue;
-    transition: font-size 0.3s ease;
 }
 
 @media (max-width:700px){
     .register-button{
-        width: 85%;
+        top: 92%;
+        width: 360px;
     }
 }

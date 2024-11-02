@@ -8,6 +8,7 @@ import {config} from 'dotenv'
 config();
 
 
+
 export default defineConfig({
   plugins: [
     react(),
@@ -19,17 +20,20 @@ export default defineConfig({
   build: {
     minify: 'terser',
     chunkSizeWarningLimit: 1500,
-    // rollupOptions: {
-    //   output: {
-    //     manualChunks: {
-    //       'react-vendor': ['react', 'react-dom'],
-    //       'lodash-vendor': ['lodash'],  // For example, split lodash
-    //       // 'your-component': ['./src/components/YourComponent.jsx'], // Split large components
-    //     }
-    //   }
-    // },
+
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'lodash-vendor': ['lodash'],  // For example, split lodash
+          'your-component': ['./src/components/YourComponent.jsx'], // Split large components
+        }
+      }
+    },
     terserOptions: {
-      compress: { // Remove console.logs in production
+      compress: {
+        drop_console: true, // Remove console.logs in production
+
         drop_debugger: true
       }
     }
@@ -48,4 +52,5 @@ export default defineConfig({
   define:{
     'process.env':process.env
   }
+
 });

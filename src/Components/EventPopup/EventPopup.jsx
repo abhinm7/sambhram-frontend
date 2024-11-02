@@ -3,25 +3,21 @@ import { StoreContext } from '../../Contexts/StoreContext';
 import React, { useContext } from 'react';
 
 const EventPopup = () => {
-    const { setPopUpStatus, popUpStatus, selectEvent, selectedEvent } = useContext(StoreContext);
+    const { setPopUpStatus, popUpStatus, selectEvent, selectedEvent  } = useContext(StoreContext);
     return (
         <>
-            <div onClick={() => setPopUpStatus('')} className={`event-popup-container ${popUpStatus ? 'show' : ''}`} >
+            <div onClick={() => setPopUpStatus('')} className="event-popup-container">
+                <div className="event-popup" onClick={(e) => e.stopPropagation()}>
 
-                <div className="event-popup" onClick={ (e) => e.stopPropagation()}>
-                    <div className="close-icon">
-                       <i onClick={() => setPopUpStatus('')} className="fa-solid fa-xmark" style={{ color: '#610000' }}></i>
-                    </div>
                     <div className="event-content">
 
 
                         <div className='pop-main'>
                             <h3 className="event-name">{popUpStatus.name} </h3>
-                            <img src="/dragon-seal.jpg" alt="" />
                             <p className="event-desc">{popUpStatus.description} </p>
                             <p className="event-desc">{popUpStatus.team_size_limit} </p>
                             {selectedEvent.includes(popUpStatus._id) ?
-                                <button className='event-selected-button' onClick={() => selectEvent(popUpStatus._id)}>Remove</button> :
+                                <button className='event-selected-button' onClick={()=>selectEvent(popUpStatus._id)}>Remove</button> :
                                 <button className='event-select-button' onClick={() => selectEvent(popUpStatus._id)}>Select</button>
                             }
 

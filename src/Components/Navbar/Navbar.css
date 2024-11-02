@@ -4,12 +4,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b8001f;
+    background: linear-gradient(319deg, #000000, #540000, #630202);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
     width: 100%;
     position: fixed;
     top: 0;
+    opacity: 0.5px;
     flex-wrap: wrap; /* Ensure wrapping on smaller screens */
     z-index: 1000; /* Keeps the navbar on top */
+}
+.navbar img{
+    height: 80%;
+    width: 15%;
+    position: absolute;
+    top: 8px;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 .navbar h1{
     color: rgb(255, 255, 255);
@@ -34,4 +54,17 @@
 .navbar button:hover {
     transform: scale(1.05);
     background-color: #ff0202; /* Change the hover color for a more interactive effect */
+}
+
+@media(max-width:700px){
+    .navbar h1{
+        font-size: 20px;
+    }
+    .navbar img{
+        height: 80%;
+        width: 40%;
+        position: absolute;
+        top: 8px;
+        left: 10px;
+    }
 }

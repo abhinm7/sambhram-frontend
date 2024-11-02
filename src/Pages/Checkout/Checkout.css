@@ -93,39 +93,6 @@
   font-size: 16px;
 }
 
-.registration-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.registration-form h2 {
-  margin: 5px 0 20px 0;
-}
-
-.registration-form input {
-  padding: 14px 10px;
-  border-radius: 7px;
-  border: 0px;
-  margin: 15px 12px;
-  font-size: 14px;
-}
-
-
-.registration-form div {
-  padding: 10px;
-  display: flex;
-  color: red;
-}
-
-.registration-form i {
-  margin-left: 5px;
-  margin-top: 7px;
-}
-
-.registration-form div p {
-  margin-left: 20px;
-}
-
 .otp-section h2 {
   margin: 5px 0;
 }

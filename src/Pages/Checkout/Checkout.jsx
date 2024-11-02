@@ -51,12 +51,16 @@ const CheckoutPage = () => {
   };
 
   const validateForm = ()=>{
-    if (!data.name || !data.usn || !data.college || !data.mobile){
-      console.log("enter all details")
-      toast.error("Please enter all details");
-    }else{
-      payNow()
-    }
+    if (!data.name || !data.usn || !data.college || !data.mobile) {
+      toast.error("Please fill out all fields.");
+      return;
+  }
+
+  if (!/^\d{10}$/.test(data.mobile)) {
+      toast.error("Please enter a valid 10-digit mobile number.");
+      return;
+  }
+    payNow();
   }
 
 

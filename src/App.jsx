@@ -33,7 +33,7 @@ function App() {
         <Preloader/>
       ) : (
         <>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="app">
           <ToastContainer />
             <Routes>

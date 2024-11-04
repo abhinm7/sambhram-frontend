@@ -27,11 +27,20 @@ export const ContextProvider = ({ children }) => {
 
     const [step, setStep] = useState(1);
     const selectEvent = (id) => {
-        if (!selectedEvent.includes(id)) {
-            setSelectedEvent((prev) => [...prev, id]);
-        } else {
+        if (selectedEvent.includes(id)) {
             setSelectedEvent((prev) => prev.filter(eventId => eventId !== id));
+            toast.success("Event removed");
         }
+        else {
+            if (selectedEvent.length == 4) {
+                toast.error("only 4 event can be selected");
+            }
+            else {
+                setSelectedEvent((prev) => [...prev, id]);
+                toast.error("Event added");        
+            }
+        }
+
     };
 
     useEffect(() => {

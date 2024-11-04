@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect, } from 'react';
 import { eventsData } from '../sampleDB';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const url = process.env.REACT_APP_URL;
 

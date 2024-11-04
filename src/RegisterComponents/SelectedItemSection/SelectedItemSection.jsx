@@ -1,5 +1,6 @@
 import { StoreContext } from '../../Contexts/StoreContext';
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SelectedItemSection.css'
 
 const SelectedItemSection = ({items}) =>{
@@ -9,9 +10,10 @@ const SelectedItemSection = ({items}) =>{
     const couponDiscount = 10;
     const grandTotal = totalAmount - couponDiscount;
     const {selectEvent} = useContext(StoreContext)
- 
+    const navigate = useNavigate();
+    
     const handleAddMore = () => {
-        navigate('/events');
+        navigate('/events'); 
       };
       
     return(

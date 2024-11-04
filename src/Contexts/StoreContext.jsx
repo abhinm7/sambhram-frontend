@@ -2,6 +2,7 @@ import { createContext, useState, useEffect, } from 'react';
 import { eventsData } from '../sampleDB';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const url = process.env.REACT_APP_URL;
@@ -10,8 +11,9 @@ export const StoreContext = createContext();
 export const ContextProvider = ({ children }) => {
     const [eventType, setEventType] = useState("Cultural");
     const [popUpStatus, setPopUpStatus] = useState('');
-
     const [eventDatas, setEventDatas] = useState([]);
+
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         try {
@@ -74,15 +76,15 @@ export const ContextProvider = ({ children }) => {
     const selectEvent = (id) => {
         if (selectedEvent.includes(id)) {
             setSelectedEvent((prev) => prev.filter(eventId => eventId !== id));
-            toast.success("Event removed");
+            toast.error("Event removed");
         }
         else {
             if (selectedEvent.length == 4) {
-                toast.error("only 4 event can be selected");
+                toast.warn("only 4 event can be selected");
             }
             else {
                 setSelectedEvent((prev) => [...prev, id]);
-                toast.error("Event added");        
+                toast.success("Event added");        
             }
         }
 
@@ -134,7 +136,7 @@ export const ContextProvider = ({ children }) => {
                 handler: function (response) {
 
                     console.log("gateway success::", response);
-
+                    navigate('/success')
 
                 },
                 prefill: {

@@ -7,6 +7,8 @@ import Home from './Pages/Home/Home.jsx';
 import Registration from './Pages/Registration/Registration.jsx';
 import Event from './Pages/Events/Event.jsx';
 import CheckoutPage from './Pages/Checkout/Checkout.jsx';
+import SuccessPage from './Pages/SuccessPage/SuccessPage.jsx'
+
 import Footer from './Components/Footer/Footer.jsx'
 
 import { ContextProvider } from './Contexts/StoreContext.jsx';
@@ -51,6 +53,7 @@ function App() {
               <Route path="/register" element={<Registration />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/events" element={<Event />} />
+              <Route path="/success" element={<SuccessPage/>}/>
               <Route path="*" element={<h1>not found page</h1>} />
             </Routes>
             <Footer/>

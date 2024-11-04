@@ -151,11 +151,12 @@ export const ContextProvider = ({ children }) => {
 
             const rzp = new Razorpay(options);
             rzp.on('payment.failed', function (response) {
-                alert("Payment failed: " + response.error.description);
+                toast.error("Payment failed: " + response.error.description);
             });
             rzp.open();
         } catch (error) {
-            console.error("Error initiating payment", error);
+            console.error("Error initiating payment", error.response);
+            toast.error(error.response.data.message)
         }
     };
 

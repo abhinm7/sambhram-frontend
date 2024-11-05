@@ -8,7 +8,7 @@ const Spotlight = () =>{
             <Spotlightcarousel/>
         </div>
         </>
-    )
+    ) 
 }
 
 export default Spotlight;

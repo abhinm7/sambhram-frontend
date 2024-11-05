@@ -11,7 +11,7 @@ import './RightDrawerMenu.css';
 
 const menuItems = [
   { id: 'home', path: '/', label: 'Home' },
-  { id: 'register', path: '/register', label: 'Register' },
+  { id: 'register', path: '/checkout', label: 'Register' },
   { id: 'events', path: '/events', label: 'Events' },
   { id: 'merch', path: '/merch', label: 'Merch' },
   { id: 'about', path: '/about', label: 'About' }

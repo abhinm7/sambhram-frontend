@@ -4,7 +4,6 @@ import Navbar from './Components/Navbar/Navbar.jsx';
 import Preloader from './Components/Preloader/Preloader.jsx'
 
 import Home from './Pages/Home/Home.jsx';
-import Registration from './Pages/Registration/Registration.jsx';
 import Event from './Pages/Events/Event.jsx';
 import CheckoutPage from './Pages/Checkout/Checkout.jsx';
 import SuccessPage from './Pages/SuccessPage/SuccessPage.jsx'
@@ -15,6 +14,8 @@ import { ContextProvider } from './Contexts/StoreContext.jsx';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,19 +46,21 @@ function App() {
         <Preloader/>
       ) : (
         <>
-          <Navbar />
           <div className="app">
+          <Navbar />
             <ToastContainer />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/register" element={<Registration />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/events" element={<Event />} />
               <Route path="/success" element={<SuccessPage/>}/>
               <Route path="*" element={<h1>not found page</h1>} />
             </Routes>
-            <Footer/>
+            
           </div>
+          <Footer/>
+          
+          
         </>
       )}
     </ContextProvider>

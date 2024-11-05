@@ -65,25 +65,28 @@ const RightDrawerMenu = memo(() => {
       </IconButton>
 
       <Drawer
-        anchor="right"
-        open={isDrawerOpen}
-        onClose={handleCloseDrawer}
-        PaperProps={{
-          className: 'customDrawer',
-          elevation: 3,
-          sx: {
-            width: { xs: '250px', sm: '300px' },
-            '& .MuiListItemButton-root': {
-              py: 1.5,
-              '&:hover': {
-                backgroundColor: 'action.hover',
-              },
-            },
-          },
-        }}
-      >
-        {drawerContent}
-      </Drawer>
+  anchor="right"
+  open={isDrawerOpen}
+  onClose={handleCloseDrawer}
+  PaperProps={{
+    elevation: 3,
+    sx: {
+      width: { xs: '250px', sm: '300px' },
+      backdropFilter: 'blur(4px)', // This applies the blur effect
+      backgroundColor: 'rgba(255, 255, 255, 0.8)', // Adjust opacity for a frosted glass effect
+      '& .MuiListItemButton-root': {
+        py: 1.5,
+        '&:hover': {
+          backgroundColor: 'action.hover',
+        },
+      },
+    },
+  }}
+>
+  {drawerContent}
+</Drawer>
+
+
     </div>
   );
 });

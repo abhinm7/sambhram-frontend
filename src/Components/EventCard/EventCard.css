@@ -25,7 +25,8 @@
 
 /* Flip the card when hovered */
 .event-card:hover {
-    transform: rotateY(180deg); /* Rotate card on hover */
+    transform: rotateY(180deg);
+    transform: rotateY(180deg) scale(1.05); /* Rotate card on hover */
 }
 
 /* Front face of the card */
@@ -35,7 +36,8 @@
     height: 100%;
     backface-visibility: hidden;
     padding: 10px;
-    background-color: rgba(209, 106, 88, 0.208); 
+    /* background-color: rgba(209, 106, 88, 0.208); */
+    background-image: url("https://img.freepik.com/free-vector/background-template-with-chinese-patterns-red_1308-38164.jpg?semt=ais_hybrid");
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -67,7 +69,7 @@
 .event-card .front p {
     font-weight: bold;
     font-size: 20px;
-    color: rgba(0, 0, 0, 0.541);
+    color: rgb(255, 255, 255);
 }
 
 /* Buttons */

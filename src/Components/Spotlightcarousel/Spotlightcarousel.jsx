@@ -15,7 +15,7 @@ const Spotlightcarousel = () => {
     centerPadding: "50px", // Adjust this to control visibility of side slides
     autoplay: true,
     autoplaySpeed: 2000, // Auto-scroll every 3 seconds
-  };
+  }; 
 
   const spotlightData = [
     {

@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import './RightDrawerMenu.css';
 
 const menuItems = [
@@ -28,6 +29,8 @@ const RightDrawerMenu = memo(() => {
   const handleCloseDrawer = useCallback(() => {
     setIsDrawerOpen(false);
   }, []);
+
+  const isMobile = useMediaQuery('(max-width:900px)');
 
   // Memoize drawer content to prevent unnecessary re-renders
   const drawerContent = useMemo(() => (
@@ -55,36 +58,38 @@ const RightDrawerMenu = memo(() => {
 
   return (
     <div>
-      <IconButton
-        edge="end"
-        color="inherit"
-        aria-label="menu"
-        onClick={handleOpenDrawer}
-      >
-        <MenuIcon />
-      </IconButton>
+      {isMobile && (
+        <IconButton
+          edge="end"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleOpenDrawer}
+        >
+          <MenuIcon sx={{ color: 'white' }} />
+        </IconButton>
+      )}
 
       <Drawer
-  anchor="right"
-  open={isDrawerOpen}
-  onClose={handleCloseDrawer}
-  PaperProps={{
-    elevation: 3,
-    sx: {
-      width: { xs: '250px', sm: '300px' },
-      backdropFilter: 'blur(4px)', // This applies the blur effect
-      backgroundColor: 'rgba(255, 255, 255, 0.8)', // Adjust opacity for a frosted glass effect
-      '& .MuiListItemButton-root': {
-        py: 1.5,
-        '&:hover': {
-          backgroundColor: 'action.hover',
-        },
-      },
-    },
-  }}
->
-  {drawerContent}
-</Drawer>
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={handleCloseDrawer}
+        PaperProps={{
+          elevation: 3,
+          sx: {
+            width: { xs: '250px', sm: '300px' },
+            backdropFilter: 'blur(4px)', // This applies the blur effect
+            backgroundColor: 'rgba(255, 255, 255, 0.8 )', // Adjust opacity for a frosted glass effect
+            '& .MuiListItemButton-root': {
+              py: 1.5,
+              '&:hover': {
+                backgroundColor: 'action.hover',
+              },
+            },
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
 
 
     </div>

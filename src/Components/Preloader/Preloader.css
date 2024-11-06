@@ -1,26 +1,28 @@
-/* Components/Spinner/Spinner.css */
-.spinner {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* From Uiverse.io by Nawsome */ 
+.spinner{
+  height: 100vh;
+  width: 100hh;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
 }
 
-.loading-circle {
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #333;
+/* From Uiverse.io by bhaveshxrawat */ 
+.ball {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(255, 44, 44);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  animation: bounce 0.5s ease-in-out infinite both;
+ }
+ 
+ @keyframes bounce {
+  0%, 100% {
+   transform: translate(0px, 0px);
   }
-}
+ 
+  50% {
+   transform: translate(0px, 50px) scale(1, 0.77);
+  }
+ }

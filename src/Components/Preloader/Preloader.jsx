@@ -1,11 +1,14 @@
 // Preloader.js
 import React from 'react';
-import './Preloader.css';  // Link to the spinner styles
+import './Preloader.css';
 
 const Preloader = () => {
   return (
     <div className="spinner">
-      <div className="loading-circle"></div>
+      <section class="area">
+        <div class="ball"></div>
+      </section>
+
     </div>
   );
 };

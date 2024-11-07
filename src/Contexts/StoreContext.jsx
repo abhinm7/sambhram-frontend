@@ -136,7 +136,7 @@ export const ContextProvider = ({ children }) => {
                 handler: function (response) {
 
                     console.log("gateway success");
-                    
+                    setSelectedEvent(()=>[]);
                     navigate('/success')
 
                 },

@@ -11,7 +11,9 @@ const SuccessPage = () => {
                         <h2>Registered successfully</h2>
                     </div>
 
-                    <div className="success-down"></div>
+                    <div className="success-down">
+                        head fahiz
+                    </div>
                 </div>
             </div>
         </>

@@ -5,6 +5,7 @@ import { StoreContext } from '../../Contexts/StoreContext';
 import SelectedItemSection from '../../RegisterComponents/SelectedItemSection/SelectedItemSection';
 import RegistrationForm from '../../RegisterComponents/RegistrationForm/RegistrationForm';
 import { toast } from 'react-toastify';
+import PayButton from '../../RegisterComponents/PayButton/PayButton';
 
 const CheckoutPage = () => {
 
@@ -17,18 +18,15 @@ const CheckoutPage = () => {
 
   const navigate = useNavigate();
 
-  const totalAmount = items.reduce((acc, item) => acc + item.price, 0);
-  const couponDiscount = selectedCoupon ? (totalAmount * selectedCoupon.percent) / 100 : 0;
-  const grandTotal = totalAmount - couponDiscount;
+  const totalAmount = items.length*100;
+  const couponDiscount = 5;
+  const grandTotal = totalAmount ;
 
   useEffect(() => {
     setAmount(() => grandTotal)
     console.log(amount)
   }, [grandTotal])
 
-  const handleCouponSelect = (coupon) => {
-    setSelectedCoupon(coupon);
-  };
 
   if (selectedEvent.length == 0) {
     navigate('/events');
@@ -50,16 +48,16 @@ const CheckoutPage = () => {
     }
   };
 
-  const validateForm = ()=>{
+  const validateForm = () => {
     if (!data.name || !data.usn || !data.college || !data.mobile) {
       toast.error("Please fill out all fields.");
       return;
-  }
+    }
 
-  if (!/^\d{10}$/.test(data.mobile)) {
+    if (!/^\d{10}$/.test(data.mobile)) {
       toast.error("Please enter a valid 10-digit mobile number.");
       return;
-  }
+    }
     payNow();
   }
 
@@ -103,18 +101,26 @@ const CheckoutPage = () => {
 
 
 
-
+ 
       </div>
       <div className="continue-panel">
         <div className="terms">
+
           <i onClick={() => setSelectedEvent(() => [])} className="fa-solid fa-trash" style={{ color: "#520f0f" }}></i>
         </div>
 
         <div className="continue-section">
-          <button className="continue-button" onClick={() => {
-            handleContinue();
-            step === 2 ? validateForm() : null;
-          }}>Continue ₹ {grandTotal.toFixed(2)}</button>
+          {
+            step === 1 ?
+              // <button className="continue-button" onClick={() => { handleContinue() }}>
+              //   Continue ₹ {grandTotal.toFixed(2)}</button>
+                <PayButton btnFunction={handleContinue} btnText={"Continue"} step={step}/>:
+                <PayButton btnFunction={validateForm} btnText={"Pay now"} step={step}/>
+          }
+
+
+          
+
         </div>
       </div>
 

@@ -14,6 +14,7 @@ const EventCard = () => {
                         <div className="event-card">
                             <div className="front">
                                 <p>{event.name}</p>
+
                                 {/* <div className="card-buttons">
                                     <i
                                         onClick={() => setPopUpStatus(event)}

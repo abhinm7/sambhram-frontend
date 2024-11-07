@@ -1,7 +1,7 @@
 .checkout-flex {
   margin-top: 80px;
   width: 100%;
-  height: 100vh;
+  height: 150vh;
   display: flex;
   justify-content: center;
 }
@@ -10,10 +10,9 @@
   position: absolute;
   top: 40px;
   width: 60%;
-  padding: 20px;
   margin-top: 70px;
-  border-radius: 14px;
   background-color: #ff110011;
+  border-radius: 20px;
 }
 
 .back {
@@ -32,10 +31,9 @@
   width: 100%;
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 40px;
-  padding: 0 20px;
+  margin-top: 20px;
 }
 
 .step {
@@ -153,7 +151,7 @@
 
   .checkout-container {
     width: 90%;
-    height: 70vh;
+    height: 107vh;
     top: 20px;
   }
 
@@ -161,3 +159,5 @@
     height: 50px;
   }
 }
+
+

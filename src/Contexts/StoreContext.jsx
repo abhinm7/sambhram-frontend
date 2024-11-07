@@ -17,8 +17,9 @@ export const ContextProvider = ({ children }) => {
 
     const fetchData = async () => {
         try {
-            console.log(url, ":");
+            console.log(url);
             const response = await axios.get(`${url}/api/v1/auth/events`);
+            
             const newEventDatas = response.data;
 
             // Save to localStorage
@@ -136,7 +137,7 @@ export const ContextProvider = ({ children }) => {
                 handler: function (response) {
 
                     console.log("gateway success");
-                    setSelectedEvent(()=>[]);
+                    setSelectedEvent(()=>setSelectedEvent((prev) => [...prev, id]));
                     navigate('/success')
 
                 },

@@ -13,6 +13,8 @@
     width: 80%;
     height: 60vh;
     border: 1px solid black;
+    border-radius: 30px;
+    overflow: hidden;
  }
  .success-up{
     width: 100%;

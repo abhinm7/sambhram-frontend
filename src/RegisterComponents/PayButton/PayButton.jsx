@@ -1,4 +1,4 @@
-import './Paybutton.css'
+import './PayButton.css'
 
 const PayButton = ({ btnFunction, btnText, step }) => {
 

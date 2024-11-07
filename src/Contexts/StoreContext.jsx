@@ -135,7 +135,8 @@ export const ContextProvider = ({ children }) => {
                 redirect: url + '/api/v1/auth/payment/verify',
                 handler: function (response) {
 
-                    console.log("gateway success::", response);
+                    console.log("gateway success");
+                    
                     navigate('/success')
 
                 },

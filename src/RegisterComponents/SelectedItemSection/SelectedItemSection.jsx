@@ -31,7 +31,7 @@ const SelectedItemSection = ({ items }) => {
   const handleAddMore = () => {
     navigate('/events');
   };
-
+ 
   return (
     <div className="items-section">
       {/* <div className="item-section-head"><h1>Selected Events</h1></div> */}

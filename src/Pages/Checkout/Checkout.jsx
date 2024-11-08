@@ -18,8 +18,14 @@ const CheckoutPage = () => {
 
   const navigate = useNavigate();
 
-  const totalAmount = items.length*100;
-  const couponDiscount = 5;
+  const totalAmount = items.length * 100;
+  let couponDiscount = 0;
+
+  couponDiscount = items.length === 4 ? 150
+    : items.length === 3 ? 80
+      : items.length === 2 ? 40
+        : 0;
+
   const grandTotal = totalAmount ;
 
   useEffect(() => {

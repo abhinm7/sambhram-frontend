@@ -11,10 +11,10 @@ const RegistrationForm = () => {
     }
 
     return (
-        <div className="registration-form">
+        <div className="registration-form-div">
 
             <form action="" className='registration-form'>
-                <h2>Enter Your Details</h2>
+                <h2>ENTER YOUR DETAILS</h2>
 
                 <input
                     type="text"
@@ -32,7 +32,7 @@ const RegistrationForm = () => {
                     value={data.usn}
                     required
                 />
-                <input
+                <input 
                     type="text"
                     placeholder="Enter College Name"
                     name="college"

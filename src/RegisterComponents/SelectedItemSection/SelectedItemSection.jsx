@@ -10,22 +10,17 @@ const SelectedItemSection = ({ items }) => {
   const totalAmount = items.length * 100;
   let couponDiscount = 0;
   let currentCoupon = null;
-  if (items.length === 4) {
-    couponDiscount = 150;
-    currentCoupon = "EMBER"
-  }
-  else if (items.length === 3) {
-    couponDiscount = 50;
-    currentCoupon = "DRAGON PASS"
-  }
-  else if (items.length === 2) {
-    couponDiscount = 20
-    currentCoupon = "BASE PLAN"
-  }
-  else {
-    couponDiscount = 0;
-    currentCoupon = "BASE PLAN"
-  }
+
+  couponDiscount = items.length === 4 ? 150
+    : items.length === 3 ? 80
+      : items.length === 2 ? 40
+        : 0;
+
+  currentCoupon = items.length === 4 ? "DRAGON"
+    : items.length === 3 ? "FLAME"
+      : items.length === 2 ? "FANG"
+        : "EMBER";
+
 
   const grandTotal = totalAmount - couponDiscount;
 
@@ -39,9 +34,11 @@ const SelectedItemSection = ({ items }) => {
 
   return (
     <div className="items-section">
-      <div className="item-section-head"><h1>Selected Events</h1></div>
+      {/* <div className="item-section-head"><h1>Selected Events</h1></div> */}
+
 
       <div className="item-rows">
+        <h4>SELECTED EVENTS</h4>
         {items.map((item) => (
           <div className="item-row" key={item._id}>
             <div className="items">
@@ -61,23 +58,25 @@ const SelectedItemSection = ({ items }) => {
       <div className="addMore" onClick={handleAddMore}>
         + Add more
       </div>
-      
-      <div className="current-ticket-section">
-      <h2>YOUR TICKET IS {currentCoupon}</h2>
-            <div className="current-ticket">
-              <p></p>
-            </div>
+
+      <div className="receipt-section">
+        <div className="current-ticket-section">
+
+          {
+            <img src={
+              currentCoupon === "DRAGON" ? "dragon_thumb.png" : currentCoupon === "FLAME" ? "flame_thumb.png" : currentCoupon === "FANG" ? "fang_thumb.png" : "ember_thumb.png"
+            } alt="" />
+          }
+
+        </div>
+
+        <div className="total">
+          <div className='price'>Total: <p>₹ {totalAmount}</p></div>
+          {<div className='price'>{currentCoupon} Pass discount :  <p>{couponDiscount}</p></div>}
+          <div className="grand-total price">Grand Total: <p>₹{grandTotal}</p></div>
+        </div>
       </div>
-      {
-        items.length > 1 ?
-          <div className="coupon-current"><p>You are eligible for {currentCoupon}</p></div> :
-          <></>
-      }
-      <div className="total">
-        <div className='price'>Total: <p>₹ {totalAmount}</p></div>
-        {<div className='price'>{currentCoupon} Coupon discount :  <p>{couponDiscount}</p></div>}
-        <div className="grand-total price">Grand Total: <p>₹{grandTotal}</p></div>
-      </div>
+
     </div>
   )
 }

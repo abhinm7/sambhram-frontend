@@ -46,7 +46,6 @@
     background: url('fahiz.jpeg') no-repeat center center; 
     background-size: cover; 
     -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent;
     background-clip: text; 
     color: transparent; 
 }

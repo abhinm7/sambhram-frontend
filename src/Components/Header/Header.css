@@ -19,27 +19,18 @@
     background-position: center;
 }
 /* Make the invite-container and content invisible when the video is not loaded */
-.invite-container.loading .content {
-    display: none;
-}
-
-/* You can optionally show a loading spinner or any other content here */
-.invite-container.loading::before {
-    content: "Loading...";
-    display: block;
-    color: white;
-    font-size: 24px;
+.loading-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
-
-/* Ensure content appears after video is loaded */
-.invite-container.loaded .content {
-    display: block;
-}
-
 .head-video{
     position: relative;
     object-fit: cover;

@@ -1,5 +1,4 @@
 .success-page {
-   margin-top: 100px;
    display: flex;
    justify-content: center;
    padding: 5%;
@@ -12,9 +11,9 @@
    display: flex;
    flex-direction: column;
    justify-content: center;
+   top: 10%;
    width: 80%;
    height: 60vh;
-   border: 1px solid black;
    border-radius: 30px;
    overflow: hidden;
    position: relative;
@@ -28,6 +27,9 @@
    align-items: center;
    justify-content: center;
 }
+.success-up p{
+   text-align: center;
+}
 
 .success-up img {
    height: 40px;
@@ -37,7 +39,7 @@
 .success-down {
    width: 100%;
    height: 40%;
-   background-color: #25d366;
+   /* background-color: #25d366; */
    display: flex;
    align-items: center;
    z-index: 100;
@@ -81,10 +83,107 @@
 .flying-lantern:nth-child(2) {
    animation-delay: 4s; /* Adjusted delay for smoother stagger */
 }
+.ticket-overlay{
+   position: absolute;
+   top: 80px;
+   width: 100%;
+   height: 100vh;
+   z-index: 1000;
+   background-color: rgba(0, 0, 0, 0.516);
+   backdrop-filter: blur(2px);
+   display: flex;
+   justify-content: center;  
+   align-items: center;  
+   position: fixed;
+}  
+.ticket {
+   position: relative;
+   margin-top: -200px;
+   width: 200px;
+   height: 500px;
+   background-color: #25d36557;
+   overflow: hidden; 
+}
 
+/* Flame effect on the border */
+.ticket::before,
+.ticket::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-radius: 10px; /* Match ticket’s border radius */
+   border: 3px solid transparent; /* Base border size */
+   box-sizing: border-box;
+   pointer-events: none; /* Ensure it's non-clickable */
+}
 
+/* Animate the flame effect along the border */
+.ticket::before {
+   border-image: linear-gradient(45deg, transparent, #ffe600, #ff3838, #ff6a00, transparent) 1;
+   animation: flame-animation 1s linear infinite;
+}
 
+/* Add additional flickering effect */
+.ticket::after {
+   border-image: linear-gradient(45deg, transparent, #ff9d00, #ff0000, #ff9d00, transparent) 1;
+   animation: flicker-animation 1.5s ease-in-out infinite;
+   opacity: 1; /* Subtle flicker overlay */
+}
 
+/* Keyframes for flame movement around the border */
+@keyframes flame-animation {
+   0% {
+       border-image-source: linear-gradient(45deg, transparent, #ff6a00, #ff3838, #ff6a00, transparent);
+   }
+   50% {
+       border-image-source: linear-gradient(135deg, transparent, #fffbfb, #ff9d00, #ff5700, transparent);
+   }
+   100% {
+       border-image-source: linear-gradient(225deg, transparent, #ff6a00, #ff3838, #ff6a00, transparent);
+   }
+}
+
+/* Keyframes for flicker effect */
+@keyframes flicker-animation {
+   0%, 100% {
+       opacity: 0.8;
+   }
+   50% {
+       opacity: 1;
+   }
+}
+
+.ticket img{
+   width: 100%;
+   height: 100%;
+   position: absolute;
+}
+.ticket-button-flex i{
+   position: absolute;
+}
+.ticket-button-flex{
+width: 100%;
+padding: 8px;
+display: flex;
+justify-content: end;
+background-color: #defffa;
+}
+.save-flex{
+   width: 100%;
+   position: absolute;
+   top: 72%;
+   display: flex;
+   justify-content: center;
+   z-index: 1001;
+}
+@media (max-width:700px) {
+   .ticket-overlay{
+      top: 70px;
+   }
+}
 /* From Uiverse.io by himanshu9682 */ 
 .type--A {
    --line_color: #555555;
@@ -327,7 +426,7 @@
      width: 124px;
    }
  }
- 
+
  .container {
    width: 100%;
    height: 300px;

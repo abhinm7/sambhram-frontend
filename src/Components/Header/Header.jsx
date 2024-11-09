@@ -19,7 +19,7 @@ const Header = () => {
                     playsInline
                     onCanPlayThrough={handleVideoLoad} // Trigger when video can play through
                 >
-                    <source src="header-comp.mp4" type="video/mp4" />
+                    <source src="header_video.webm" type="video/webm" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="header-overlay"></div>

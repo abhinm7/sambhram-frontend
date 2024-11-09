@@ -6,8 +6,8 @@ const Spotlight = () =>{
     return(
         <>
         <div className="spotlights">
-            {/* <Spotlightcarousel/> */}
-            <CarouselComponent/>
+            {/* <CarouselComponent/> */}
+            <Spotlightcarousel/>
         </div>
         </>
     ) 

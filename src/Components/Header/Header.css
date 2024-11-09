@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 .header {
     width: 100%;
     height: 88vh;
@@ -5,31 +7,50 @@
 }
 
 .invite-container {
-    width: 100%;
+    width: 100hh;
     height: 100vh; 
     display: flex;
-    padding-top: 20px;
-    background-color: #000;
     color: white;
     justify-content: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-image: url('https://38.media.tumblr.com/44159f61c43912f04db1af0b033b7f59/tumblr_ntvjzrQJkM1qjhkb8o1_500.gif');
+    background-color: #0000004f;
+    /* background-image: url('https://38.media.tumblr.com/44159f61c43912f04db1af0b033b7f59/tumblr_ntvjzrQJkM1qjhkb8o1_500.gif'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
-
+.head-video{
+    position: relative;
+    object-fit: cover;
+    width: 100%
+}
+.header-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000002f;
+}
 .content {
+    padding: 4%;
     margin-top: 60px;
     text-align: left;
-    padding: 20px;
+    position: absolute;
+}
+.title-sd{
+    font-size: 60px;
 }
 
 .title {
-    font-size: 80px;
+    font-size: 150px; 
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('fahiz.jpeg') no-repeat center center; 
+    background-size: cover; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    background-clip: text; 
+    color: transparent; 
 }
-
+  
 .description {
     font-size: 30px;
     margin-bottom: 30px;
@@ -40,33 +61,86 @@
     margin-bottom: 30px;
 }
 
-.discover-button {
-    background-color: transparent;
-    color: white;
-    padding: 15px 25px 15px;
-    font-size: 25px; 
-    cursor: pointer;
-    border: 3px solid #e77f67;
-    border-radius: 50px;
-    display: flex;
+/* From Uiverse.io by Wlidha09 */ 
+.btn-white {
+    display: inline-flex;
     align-items: center;
-}
+    color: #fff;
+    border: 1px solid #fff;
+    min-height: 50px;
+    padding: 0 20px;
+    font-size: 17px;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    background-color: transparent;
+  }
+  
+  .btn-white::before {
+    content: "";
+    background-color: #fff;
+    display: block;
+    width: 45px;
+    height: 1px;
+    margin-right: 20px;
+  }
+  
+  .btn-white::after {
+    content: "";
+    background-color: #fff;
+    display: block;
+    width: 0%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  
+  .btn-white:hover {
+    color: #232963;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  
+  .btn-white:hover::after {
+    width: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  
+  .btn-white:hover::before {
+    background-color: #232963;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
 
-.discover-button:hover {
-    background-color: #000000;
-    color: white;
-    border: 3px solid #db9132;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
-        0 8px 16px rgba(0, 0, 0, 0.2)
-}
-
+  @media (max-width:1200px) {
+    .title{
+        font-size: 80px;
+        background-color: #232963;
+    }
+  }
 @media (max-width: 700px) {
     .invite-container {
         height: 100vh;
     }
-
+    .title-sd{
+        font-size: 40px;
+    }
     .title {
-        font-size: 36px;
+        font-size: 55px;
     }
 
     .description {

@@ -6,7 +6,7 @@ const SuccessPage = () => {
         <>
             <div className="success-page">
                 <div className="success-component">
-                    
+
                     <div className="flying-lantern">
                         <img src="https://oriental-decor.com/wp-content/uploads/2023/10/2545-w-900x900.png" alt="Flying Lantern" />
                     </div>
@@ -18,7 +18,15 @@ const SuccessPage = () => {
                         <h2>Registered successfully</h2>
                     </div>
                     <div className="success-down">
-                        Head Fahiz
+                        <div className="container">
+                            <a className="button type--C">
+                                <div className="button__line"></div>
+                                <div className="button__line"></div>
+                                <span className="button__text">View Ticket</span>
+                                <div className="button__drow1"></div>
+                                <div className="button__drow2"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

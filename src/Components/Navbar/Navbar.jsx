@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import RightDrawerMenu from '../RightDrawerMenu/RightDrawerMenu';
-import sambhram_logo from '../../assets/sambhram_logo.png';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
@@ -64,7 +63,7 @@ const Navbar = () => {
         <div className={getNavbarClass()}>
             <div className="navbar-left">
                 <Link to='/' onClick={() => setMenu('home')}>
-                    <img src={sambhram_logo} alt="Sambhram Logo" />
+                    <img src="https://sambhram-assets.s3.ap-south-1.amazonaws.com/sambhram_logo.png" alt="Sambhram Logo" />
                 </Link>
             </div>
             <div className="navbar-right">

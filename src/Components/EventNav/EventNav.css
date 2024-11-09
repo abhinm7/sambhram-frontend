@@ -3,9 +3,22 @@
    width: 100%;
    position: fixed;
    display: flex;
+   flex-direction: row;
    justify-content: center;
    top: 100px;
    z-index: 10;
+}
+.lanthern{
+    height: 100px;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 44px;
+}
+.lanthern2{
+    height: 130px;
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 40px;
 }
 .event-nav{
     width:50%;

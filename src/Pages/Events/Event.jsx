@@ -15,6 +15,7 @@ const Event = () => {
     return (
         <div className='event'>
             <EventNav />
+            
                 <div className="image-overlay">
                     
                 </div>

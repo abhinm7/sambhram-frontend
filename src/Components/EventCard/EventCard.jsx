@@ -7,6 +7,7 @@ const EventCard = () => {
 
     return (
         <>
+        
             {eventDatas
                 .filter(event => event.category === eventType)
                 .map((event) => (

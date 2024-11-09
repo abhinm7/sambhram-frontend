@@ -10,6 +10,7 @@
     justify-content: space-evenly;
     padding: 50px;
 }
+
 .image-overlay {
     position: absolute;
     height: 120%;

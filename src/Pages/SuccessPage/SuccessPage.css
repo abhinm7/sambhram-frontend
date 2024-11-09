@@ -1,44 +1,83 @@
- .success-page{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-    width: 100%;
-    height: 100vh;
- }
- .success-component{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    height: 60vh;
-    border: 1px solid black;
-    border-radius: 30px;
-    overflow: hidden;
- }
- .success-up{
-    width: 100%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.success-page {
+   margin-top: 100px;
+   display: flex;
+   justify-content: center;
+   padding: 5%;
+   width: 100%;
+   height: 100vh;
+   position: relative;
+}
 
- }
+.success-component {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 80%;
+   height: 60vh;
+   border: 1px solid black;
+   border-radius: 30px;
+   overflow: hidden;
+   position: relative;
+}
 
- .success-up img{
-    height: 40px;
-    width: 40px;
- }
- .success-down{
-    width: 100%;
-    height: 40%;
-    background-color: rgba(181, 110, 3, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
- .success-component h1{
-    color: rgb(49, 2, 2);
- }
+.success-up {
+   width: 100%;
+   height: 60%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
 
+.success-up img {
+   height: 40px;
+   width: 40px;
+}
+
+.success-down {
+   width: 100%;
+   height: 40%;
+   background-color: rgb(0, 0, 0);
+   display: flex;
+   align-items: center;
+   z-index: 100;
+   justify-content: center;
+}
+
+/* Lantern Animation */
+.flying-lantern {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   animation: flyUpFromComponent 12s ease-in-out infinite; /* Slower animation */
+}
+
+.flying-lantern img {
+   width: 50px;
+   opacity: 0.8;
+}
+
+/* Keyframes for lantern animation */
+@keyframes flyUpFromComponent {
+   0% {
+       transform: translateY(0) translateX(-50%);
+       opacity: 1;
+   }
+   70% {
+       opacity: 1;
+   }
+   100% {
+       transform: translateY(-150vh); /* Move higher */
+       opacity: 0;
+   }
+}
+
+/* Individual lantern delays */
+.flying-lantern:nth-child(1) {
+   animation-delay: 0s;
+}
+
+.flying-lantern:nth-child(2) {
+   animation-delay: 4s; /* Adjusted delay for smoother stagger */
+}

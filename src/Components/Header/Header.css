@@ -18,6 +18,28 @@
     background-size: cover;
     background-position: center;
 }
+/* Make the invite-container and content invisible when the video is not loaded */
+.invite-container.loading .content {
+    display: none;
+}
+
+/* You can optionally show a loading spinner or any other content here */
+.invite-container.loading::before {
+    content: "Loading...";
+    display: block;
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ensure content appears after video is loaded */
+.invite-container.loaded .content {
+    display: block;
+}
+
 .head-video{
     position: relative;
     object-fit: cover;

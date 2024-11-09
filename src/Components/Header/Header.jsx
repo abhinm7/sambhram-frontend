@@ -26,7 +26,6 @@ const Header = () => {
                     </h1>
 
                     <h1 class="title">SAMBHRAM'24</h1>
-<img src="fahiz.jpg" alt="" />
 
                     <p class="description">
                         We cordially invite you to our national level college fest of 2024

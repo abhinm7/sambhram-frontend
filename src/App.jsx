@@ -10,6 +10,8 @@ import SuccessPage from './Pages/SuccessPage/SuccessPage.jsx'
 
 import Footer from './Components/Footer/Footer.jsx'
 
+import ScrollToTop from './ScrolltoTop.jsx';
+
 import { ContextProvider } from './Contexts/StoreContext.jsx';
 
 import { ToastContainer } from 'react-toastify';
@@ -49,6 +51,7 @@ function App() {
           <div className="app">
           <Navbar />
             <ToastContainer />
+            <ScrollToTop/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/checkout" element={<CheckoutPage />} />

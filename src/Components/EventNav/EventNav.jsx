@@ -19,8 +19,6 @@ const EventNav = ()=>{
                 <p>SPECIAL</p>
             </div>
         </div>
-        <img className='lanthern' src="https://static.vecteezy.com/system/resources/previews/014/475/701/non_2x/golden-lantern-pattern-chinese-lantern-silhouette-for-decoration-for-chinese-new-year-png.png" alt="" />
-        <img className='lanthern2' src="https://static.vecteezy.com/system/resources/previews/014/475/701/non_2x/golden-lantern-pattern-chinese-lantern-silhouette-for-decoration-for-chinese-new-year-png.png" alt="" />
         </div>
         
         </>

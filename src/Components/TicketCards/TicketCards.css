@@ -9,8 +9,9 @@
 
 .ticket-card-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  
-    gap: 20px;  
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px;  
+    column-gap: 40px;  
     margin-top: 40px;
     width: 70%;
 }
@@ -58,21 +59,25 @@
 @media (max-width: 1200px) {
     .ticket-card-list {
         grid-template-columns: repeat(3, 1fr); 
+        gap: 30px;
     }
     .ticket-card-view {
-        height: 150px;
-        width: 112px;
+        height: 180px;
+        width: 135px;
     }
     .ticket-cards{
         height: 80vh;
     }
-}
+}   
 
 @media (max-width: 900px) {
     .ticket-card-list {
         grid-template-columns: repeat(2, 1fr);  
+        width: 80%;
+        row-gap: 30px;
     }
     .ticket-card-overview{
         padding: 10px;
     }
+    
 }

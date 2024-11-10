@@ -1,48 +1,46 @@
-name: Deploy React App to AWS S3 and CloudFront
+name: Deploy React App to S3 and Invalidate CloudFront
 
 on:
   push:
     branches:
-      - main  # Triggers deployment when code is pushed to the main branch
+      - main  # Triggers workflow on push to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Use the Node.js version required for your project
+          node-version: '20'  # Specify the Node.js version for your project
 
-      # Step 3: Install dependencies and build the app
-      - name: Install dependencies and build
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      # Step 4: Sync build folder to S3 bucket
-      - name: Deploy to S3
-        uses: aws-actions/s3-sync-action@v1
+      - name: Build React app
+        run: npm run build
+
+      - name: Sync S3 bucket
+        uses: aws-actions/s3-sync-action@v0.5.1
         with:
           source-dir: build
-          bucket: ${{ secrets.AWS_BUCKET_NAME }}
+          destination-bucket: ${{ secrets.AWS_BUCKET_NAME }}
           region: ${{ secrets.AWS_REGION }}
-          delete: true
+          bucket: ${{ secrets.AWS_BUCKET_NAME }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      # Step 5: Invalidate CloudFront cache (optional but recommended)
-      - name: Invalidate CloudFront Cache
-        uses: aws-actions/aws-cloudfront-invalidate-action@v1
+      - name: Invalidate CloudFront cache
+        uses: aws-actions/aws-cloudfront-invalidate-action@v1.1.1
         with:
           distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          paths: "/*"  # Invalidate all paths
-
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_REGION: ${{ secrets.AWS_REGION }}
+          paths: "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}

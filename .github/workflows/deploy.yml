@@ -1,0 +1,48 @@
+name: Deploy React App to AWS S3 and CloudFront
+
+on:
+  push:
+    branches:
+      - main  # Triggers deployment when code is pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Use the Node.js version required for your project
+
+      # Step 3: Install dependencies and build the app
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      # Step 4: Sync build folder to S3 bucket
+      - name: Deploy to S3
+        uses: aws-actions/s3-sync-action@v1
+        with:
+          source-dir: build
+          bucket: ${{ secrets.AWS_BUCKET_NAME }}
+          region: ${{ secrets.AWS_REGION }}
+          delete: true
+
+      # Step 5: Invalidate CloudFront cache (optional but recommended)
+      - name: Invalidate CloudFront Cache
+        uses: aws-actions/aws-cloudfront-invalidate-action@v1
+        with:
+          distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          paths: "/*"  # Invalidate all paths
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}

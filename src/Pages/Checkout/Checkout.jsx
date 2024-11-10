@@ -43,6 +43,7 @@ const CheckoutPage = () => {
     if (step < 2) {
       setStep(step + 1);
     }
+    window.scrollTo(0, 0);
   };
 
   const handleBack = () => {

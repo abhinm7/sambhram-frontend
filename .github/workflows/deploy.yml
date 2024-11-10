@@ -18,6 +18,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+        - name: Set up environment variables
+        run: |
+          echo "REACT_APP_URL=${{ secrets.REACT_APP_URL }}" >> $GITHUB_ENV
+          echo "REACT_APP_RAZORPAY_ID=${{ secrets.REACT_APP_RAZORPAY_ID }}" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm ci
 

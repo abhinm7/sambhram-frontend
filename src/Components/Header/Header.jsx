@@ -16,12 +16,12 @@ const Header = () => {
                 {/* Loading Spinner */}
                 {!isVideoLoaded && (
                     <div className="loading-overlay">
-                        <Preloader/>
+                        <Preloader />
                     </div>
                 )}
 
                 {/* Video that will play */}
-                <video 
+                <video
                     className='head-video'
                     autoPlay
                     loop
@@ -34,7 +34,7 @@ const Header = () => {
 
                     Your browser does not support the video tag.
                 </video>
-                
+
                 <div className="header-overlay"></div>
 
                 {/* Content that appears immediately after the video is ready */}

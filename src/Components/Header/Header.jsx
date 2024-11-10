@@ -30,7 +30,8 @@ const Header = () => {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onLoadedData={handleVideoLoad}  // When the video is loaded, hide the loading
                 >
-                    <source src="https://sambhram-assets.s3.ap-south-1.amazonaws.com/header-video.webm" type="video/mp4" />
+                    <source src="https://sambhram-assets.s3.ap-south-1.amazonaws.com/header-video.webm" type="video/webm" />
+
                     Your browser does not support the video tag.
                 </video>
                 

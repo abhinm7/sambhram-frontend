@@ -3,7 +3,7 @@ name: Deploy React App to S3 and Invalidate CloudFront
 on:
   push:
     branches:
-      - main  # Triggers workflow on push to main branch
+      - main  # Change to your target branch
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Specify the Node.js version for your project
+          node-version: '16'
 
       - name: Install dependencies
         run: npm ci
@@ -25,18 +25,17 @@ jobs:
         run: npm run build
 
       - name: Sync S3 bucket
-        uses: aws-actions/s3-sync-action@v0.5.1
+        uses: aws-actions/s3-sync-action@v0.5.1  # Updated action with specific version
         with:
           source-dir: build
-          destination-bucket: ${{ secrets.AWS_BUCKET_NAME }}
+          destination-bucket: ${{ secrets.S3_BUCKET }}
           region: ${{ secrets.AWS_REGION }}
-          bucket: ${{ secrets.AWS_BUCKET_NAME }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Invalidate CloudFront cache
-        uses: aws-actions/aws-cloudfront-invalidate-action@v1.1.1
+        uses: awslabs/aws-cloudfront-invalidate-action@v1.1.1  # Updated action with specific version
         with:
           distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
           paths: "/*"

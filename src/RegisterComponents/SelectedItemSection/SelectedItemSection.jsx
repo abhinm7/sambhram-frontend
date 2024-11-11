@@ -42,7 +42,7 @@ const SelectedItemSection = ({ items }) => {
         {items.map((item) => (
           <div className="item-row" key={item._id}>
             <div className="items">
-              <span className="name">{item.name}</span>
+              <span className="name">{item.eventName}</span>
               <span className="price">₹ 100</span>
             </div>
             <div className="cancel">

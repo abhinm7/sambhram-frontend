@@ -3,7 +3,7 @@
   padding: 20px;
   background-color: #ffffffe1;
   border-radius: 20px;
-  height: 80vh;
+  height: 100vh;
 }
 
 .coupon-current {
@@ -24,7 +24,7 @@
 
 .item-rows {
   margin-top: 10px;
-  height: 35vh;
+  min-height: 150px;
 }
 
 .item-row {

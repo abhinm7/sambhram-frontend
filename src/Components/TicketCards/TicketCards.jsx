@@ -4,8 +4,10 @@ const TicketCards = () => {
     const images = ['one.png', 'two.png', 'three.png', 'four.png'];
 
     return (
-        <div className="ticket-cards">
-            <h2>GRAB YOUR TICKETS</h2>
+        <div className="ticket-cards"> 
+            <div className="ticket-heading">
+                <h2>GRAB YOUR TICKETS</h2>
+            </div>
             <div className="ticket-card-list">
                 {images.map((src, index) => (
                     <div className="ticket-card-view" key={index}>

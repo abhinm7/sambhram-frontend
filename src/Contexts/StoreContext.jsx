@@ -20,9 +20,9 @@ export const ContextProvider = ({ children }) => {
             console.log(url);
             const response = await axios.get(`${url}/api/v1/auth/events`);
             
-            const newEventDatas = response.data;
-
-            // Save to localStorage
+            // const newEventDatas = response.data;
+            const newEventDatas = eventsData;
+         
             localStorage.setItem("eventDatas", JSON.stringify(newEventDatas));
 
             // Update state
@@ -39,8 +39,10 @@ export const ContextProvider = ({ children }) => {
                 console.log("Data loaded from localStorage (", parsedData.length, "items)");
             } else {
                 // Fallback to eventsData if nothing in localStorage
-                setEventDatas(eventsData);
-                console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
+                // setEventDatas(eventsData);
+                // console.log("Sample db fetched for production mode (", eventsData.length, "datas)");
+                console.log("error fetching data");
+                
             }
         }
     };
@@ -145,7 +147,7 @@ export const ContextProvider = ({ children }) => {
                 prefill: {
                     name: data.name,
                     contact: data.mobile
-                },
+                }, 
                 notes: {
                     address: "Kenjar"
                 },

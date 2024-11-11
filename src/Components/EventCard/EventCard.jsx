@@ -4,17 +4,16 @@ import { StoreContext } from '../../Contexts/StoreContext';
 
 const EventCard = () => {
     const { eventType, setPopUpStatus, selectEvent, selectedEvent, eventDatas } = useContext(StoreContext);
-
     return (
         <>
         
             {eventDatas
-                .filter(event => event.category === eventType)
+                .filter(event => event.eventType === eventType)
                 .map((event) => (
                     <div key={event._id} className="card-container">
                         <div className="event-card">
                             <div className="front">
-                                <p>{event.name}</p>
+                                <p>{event.eventName}</p>
 
                                 {/* <div className="card-buttons">
                                     <i

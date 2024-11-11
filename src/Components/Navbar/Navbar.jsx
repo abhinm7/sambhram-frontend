@@ -77,9 +77,10 @@ const Navbar = () => {
                         >
                             {item.label.toUpperCase()}
                         </Link>
-                    ))}
-                    <button>REGISTER</button>
-                </div>
+                    ))} 
+                    <Link to="/checkout"><button>REGISTER</button> </Link>
+                    
+                </div> 
                 <RightDrawerMenu />
             </div>
         </div>

@@ -1,15 +1,16 @@
-
-.event{ 
+.event {
     text-align: center;
     justify-content: center;
     min-height: 90vh;
 }
-.event-card-container{  
+
+.event-card-container {
     display: grid;
     position: relative;
     grid-template-columns: auto auto auto auto;
     justify-content: space-evenly;
-    padding: 50px;
+    padding: 50px 250px;
+    row-gap: 30px;
 }
 
 .image-overlay {
@@ -22,54 +23,36 @@
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;
-    transform-origin: center; /* sets the point around which the flip occurs */
+    transform-origin: center;
     animation: fadeIn 1.5s ease-in forwards, flip 5s ease-in-out infinite;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
 
-@keyframes flip {
-    0%, 100% {
-        transform: rotateY(0deg); /* Starts and ends in original position */
-    }
-    50% {
-        transform: rotateY(180deg); /* Fully flipped at the halfway point */
-    }
-}
-
-
-
-
-
-.event-type-heading{
+.event-type-heading {
     margin-top: 50px;
 }
-.event-container{
+
+.event-container {
     margin-top: 200px;
 }
-.event-container h1{
+
+.event-container h1 {
     margin-bottom: 10px;
 }
 
-@media (max-width:1000px){
-    .event-card-container{
+@media (max-width: 1000px) {
+    .event-card-container {
         grid-template-columns: auto auto auto;
         padding: 0;
     }
 }
 
-@media (max-width:700px) {
-    .event-card-container{
+@media (max-width: 700px) {
+    .event-card-container {
         grid-template-columns: auto auto;
         padding: 0;
     }
-    .event-container{
+    .event-container {
         margin-top: 170px;
     }
 }
-
-

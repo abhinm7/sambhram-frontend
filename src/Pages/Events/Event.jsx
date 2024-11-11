@@ -14,7 +14,7 @@ const Event = () => {
  
     return (
         <div className='event'>
-            <EventNav />
+            <EventNav /> 
             
                 <div className="image-overlay">
                     

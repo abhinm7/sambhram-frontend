@@ -38,7 +38,9 @@ const EventCard = () => {
                                             {selectedEvent.includes(event._id) ? 'EVENT ADDED' : 'ADD EVENT'}
                                         </button>
                                     </div>
-                                    <p>{event.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum perferendis repellendus similique obcaecati ad omnis maxime .</p>
+                                    <div className="event-back-dec">
+                                    <p>{event.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum perferendis repellendus similique obcaecati ad omnis maxime </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

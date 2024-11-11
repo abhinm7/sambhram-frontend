@@ -2,6 +2,7 @@
 .event{ 
     text-align: center;
     justify-content: center;
+    min-height: 90vh;
 }
 .event-card-container{  
     display: grid;

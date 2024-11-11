@@ -7,7 +7,7 @@ export const eventsData = [
     date: "2024-11-15",
     time: "6:00 PM",
     venue: "Main Auditorium",
-    studentCoordinator: "Sarah Johnson",
+    studentCoordinator: "ANARGH BJ",
     studentCoordinatorContact: "9876543210",
     description: "An evening celebrating traditional dance forms with mesmerizing solo performances.",
     rules: [

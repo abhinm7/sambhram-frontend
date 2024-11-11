@@ -15,25 +15,30 @@ const EventPopup = () => {
                     <div className='pop-main'>
                         {popUpStatus && typeof popUpStatus === 'object' ? (
                             <>
-                            
                                 <h3 className="event-name">{popUpStatus.eventName}</h3>
-                                <p className="event-desc">{popUpStatus.description}</p>
-                                <h4>Time & Date</h4>
-                                <p className="event-desc">{popUpStatus.date}</p>
-                                <div className="event-time">{popUpStatus.time}</div>
-                                <div className="event-coordinater">{popUpStatus.studentCoordinator}</div>
-                                <div className="event-coordinater-number">{popUpStatus.studentCoordinatorContact}</div>
-        
-        <div className="rule-box">
-        <h3>Rules</h3>
-        <div className="rules">
-        {popUpStatus.rules && popUpStatus.rules.map((rule, index) => (
-                                    <p key={index}># {rule}</p>
-                                ))}
-        </div>
-                                
-            </div> 
+                                <div className="time-date">
+                                    <p className="event-time">{popUpStatus.date}</p>
+                                    <div className="event-time">{popUpStatus.time}</div>
+                                </div>
 
+                                <p className="event-desc">{popUpStatus.description}</p>
+
+                                <div className="rule-box">
+                                    <h3>Rules</h3>
+                                    <div className="rules">
+                                        {popUpStatus.rules && popUpStatus.rules.map((rule, index) => (
+                                            <p className='rule' key={index}><i class="fa-solid fa-diamond fa-sm"></i> &nbsp; {rule}</p>
+                                        ))}
+                                    </div>
+
+                                </div>
+
+
+                                <div className="coordinator-details">
+                                    <div className="event-coordinater">{popUpStatus.studentCoordinator}</div>
+                                    <div className="event-coordinater-number">{popUpStatus.studentCoordinatorContact}</div>
+
+                                </div>
                                 {selectedEvent.includes(popUpStatus._id) ? (
                                     <button className='event-selected-button' onClick={() => selectEvent(popUpStatus._id)}>Remove</button>
                                 ) : (

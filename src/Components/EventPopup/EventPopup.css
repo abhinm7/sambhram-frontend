@@ -19,8 +19,8 @@
 }
 
 .event-popup {
-    margin-top: 80px;
-    height: 500px;
+    margin-top: 90px;
+    height:480px;
     width: 500px;
     border-radius: 15px;
     padding: 25px;
@@ -44,6 +44,10 @@
     display: flex;
     justify-content: space-around;
     margin-top: 40px;
+}
+.event-time{
+    font-weight: bold;
+    color: red;
 }
 .event-popup img { 
     margin-top: 20px;
@@ -119,8 +123,9 @@
     }
 
     .event-popup {
-        margin-top: 30px;
-        width: 360px;
+        margin-top: 20px;
+        width: 90%;
+        height: 520px;
     }
 
 }

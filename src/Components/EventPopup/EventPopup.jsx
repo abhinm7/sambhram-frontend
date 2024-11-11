@@ -21,13 +21,13 @@ const EventPopup = () => {
                                     <div className="event-time">{popUpStatus.time}</div>
                                 </div>
 
-                                <p className="event-desc">{popUpStatus.description}</p>
+                                <p className="event-desc">{popUpStatus.description} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse id  facere.</p>
 
                                 <div className="rule-box">
                                     <h3>Rules</h3>
                                     <div className="rules">
                                         {popUpStatus.rules && popUpStatus.rules.map((rule, index) => (
-                                            <p className='rule' key={index}><i class="fa-regular fa-circle"></i> &nbsp; {rule}</p>
+                                            <p className='rule' key={index}><i className="fa-regular fa-circle"></i> &nbsp; {rule}</p>
                                         ))}
                                     </div>
 

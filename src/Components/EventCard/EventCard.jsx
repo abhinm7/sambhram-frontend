@@ -14,36 +14,31 @@ const EventCard = () => {
                 .filter(event => event.eventType === eventType)
                 .map(event => (
                     <div key={event._id} className="card-container">
-                        <div 
+                        <div
                             className={`event-card ${flippedCard === event._id ? 'flipped' : ''}`}
                             onClick={() => toggleFlip(event._id)}
                         >
                             <div className="front">
                                 <p>{event.eventName}</p>
+                                
                             </div>
                             <div className="back">
                                 <div className="back-div">
+                                
+                                    <div className="card-button-back">
+                                        <i onClick={(e) => {
+                                            e.stopPropagation();
+                                            setPopUpStatus(event);
+                                        }}
+                                            className="fa-solid fa-circle-question fa-lg " style={{ color: '#FFFFFF' }}></i>
+
+                                    </div>
                                     <div className="card-button2-back">
-                                        <button 
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                selectEvent(event._id);
-                                            }} 
-                                            className={selectedEvent.includes(event._id) ? "nice-button active-nice" : "nice-button"}
-                                        >
-                                            {!selectedEvent.includes(event._id) ? "#ADD EVENT" : "#EVENT ADDED"}
+                                        <button onClick={(e) => { selectEvent(event._id); e.stopPropagation() }} className={`button-event ${selectedEvent.includes(event._id) ? 'clicked' : ''}`}>
+                                            {selectedEvent.includes(event._id) ? 'EVENT ADDED' : 'ADD EVENT'}
                                         </button>
                                     </div>
-                                    <div className="card-button-back">
-                                        <i
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setPopUpStatus(event);
-                                            }}
-                                            className="fa-solid fa-circle-info"
-                                            style={{ color: '#610000' }}
-                                        ></i>
-                                    </div>
+                                    <p>{event.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum perferendis repellendus similique obcaecati ad omnis maxime .</p>
                                 </div>
                             </div>
                         </div>

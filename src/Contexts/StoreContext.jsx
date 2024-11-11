@@ -4,7 +4,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-
 const url = process.env.REACT_APP_URL;
 
 export const StoreContext = createContext();

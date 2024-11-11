@@ -27,7 +27,7 @@ const EventPopup = () => {
                                     <h3>Rules</h3>
                                     <div className="rules">
                                         {popUpStatus.rules && popUpStatus.rules.map((rule, index) => (
-                                            <p className='rule' key={index}><i class="fa-solid fa-diamond fa-sm"></i> &nbsp; {rule}</p>
+                                            <p className='rule' key={index}><i class="fa-regular fa-circle"></i> &nbsp; {rule}</p>
                                         ))}
                                     </div>
 

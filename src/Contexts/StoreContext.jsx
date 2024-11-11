@@ -19,14 +19,13 @@ export const ContextProvider = ({ children }) => {
             console.log(url);
             const response = await axios.get(`${url}/api/v1/auth/events`);
             
-            // const newEventDatas = response.data;
-            const newEventDatas = eventsData;
+            const newEventDatas = response.data;
          
             localStorage.setItem("eventDatas", JSON.stringify(newEventDatas));
 
             // Update state
             setEventDatas(newEventDatas);
-            console.log("Data successfully fetched from server ||", "fetched quantity ::", newEventDatas.length);
+            console.log("Data successfully fetched from server ||", "Fetched quantity :::", newEventDatas.length);
         } catch (err) {
             console.log("Error in axios", err);
 
